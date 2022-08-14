@@ -20,5 +20,86 @@ public class SimpleHud implements ClientModInitializer {
                         true
                 )
         );
+        Config.elements.add(
+                new Element(
+                        "element.simplehud.test",
+                        50,
+                        5,
+                        (client) -> Text.translatable("element.simplehud.test.display", ((MinecraftClientMixin) client).getCurrentFPS()),
+                        true
+                )
+        ); Config.elements.add(
+                new Element(
+                        "element.simplehud.test",
+                        50,
+                        5,
+                        (client) -> Text.translatable("element.simplehud.test.display", ((MinecraftClientMixin) client).getCurrentFPS()),
+                        true
+                )
+        ); Config.elements.add(
+                new Element(
+                        "element.simplehud.test",
+                        50,
+                        5,
+                        (client) -> Text.translatable("element.simplehud.test.display", ((MinecraftClientMixin) client).getCurrentFPS()),
+                        true
+                )
+        ); Config.elements.add(
+                new Element(
+                        "element.simplehud.test",
+                        50,
+                        5,
+                        (client) -> Text.translatable("element.simplehud.test.display", ((MinecraftClientMixin) client).getCurrentFPS()),
+                        true
+                )
+        ); Config.elements.add(
+                new Element(
+                        "element.simplehud.test",
+                        50,
+                        5,
+                        (client) -> Text.translatable("element.simplehud.test.display", ((MinecraftClientMixin) client).getCurrentFPS()),
+                        true
+                )
+        ); Config.elements.add(
+                new Element(
+                        "element.simplehud.test",
+                        50,
+                        5,
+                        (client) -> Text.translatable("element.simplehud.test.display", ((MinecraftClientMixin) client).getCurrentFPS()),
+                        true
+                )
+        ); Config.elements.add(
+                new Element(
+                        "element.simplehud.test",
+                        50,
+                        5,
+                        (client) -> Text.translatable("element.simplehud.test.display", ((MinecraftClientMixin) client).getCurrentFPS()),
+                        true
+                )
+        ); Config.elements.add(
+                new Element(
+                        "element.simplehud.test",
+                        50,
+                        5,
+                        (client) -> Text.translatable("element.simplehud.test.display", ((MinecraftClientMixin) client).getCurrentFPS()),
+                        true
+                )
+        ); Config.elements.add(
+                new Element(
+                        "element.simplehud.test",
+                        50,
+                        5,
+                        (client) -> Text.translatable("element.simplehud.test.display", ((MinecraftClientMixin) client).getCurrentFPS()),
+                        true
+                )
+        ); Config.elements.add(
+                new Element(
+                        "element.simplehud.test",
+                        50,
+                        5,
+                        (client) -> Text.translatable("element.simplehud.test.display", ((MinecraftClientMixin) client).getCurrentFPS()),
+                        true
+                )
+        );
     }
 }
