@@ -1,17 +1,37 @@
 {
   "config.simplehud.title": "SimpleHUD Configuration",
   "config.simplehud.enabled": "Enabled",
+
   "config.simplehud.editpositions": "Edit Element Positions",
   "config.simplehud.editpositions.tooltip": "Configure where HUD elements are displayed on-screen",
+
   "config.simplehud.editposition": "Edit Position",
   "config.simplehud.editposition.tooltip": "Configure where this HUD element is displayed on-screen",
+
   "config.simplehud.editposition.x": "x",
   "config.simplehud.editposition.x.tooltip": "X Component of this element",
   "config.simplehud.editposition.y": "y",
   "config.simplehud.editposition.y.tooltip": "Y Component of this element",
+
   "config.simplehud.option.enabled": "HUD Enabled",
   "config.simplehud.option.enabled.tooltip": "Whether to display the custom HUD",
   "element.simplehud.fps.name": "FPS Display",
   "element.simplehud.fps.tooltip": "Displays frames per second rendered",
-  "element.simplehud.fps.display": "FPS: %d"
+  "element.simplehud.fps.display": "FPS: %d",
+
+  "element.simplehud.biome.name": "Biome",
+  "element.simplehud.biome.tooltip": "Displays the current biome",
+  "element.simplehud.biome.display": "Biome: %d",
+
+  "element.simplehud.latency.name": "Latency (Ping)",
+  "element.simplehud.latency.tooltip": "Displays the client/server latency (ping)",
+  "element.simplehud.latency.display": "Ping: %dms",
+
+  "element.simplehud.position.name": "Position",
+  "element.simplehud.position.tooltip": "Displays the player's location",
+  "element.simplehud.position.display": "(%d, %d, %d)",
+
+  "element.simplehud.time.name": "Time",
+  "element.simplehud.time.tooltip": "Displays the ingame time",
+  "element.simplehud.time.display": "Time: %d"
 }
