@@ -1,7 +1,6 @@
 {
   "config.simplehud.title": "SimpleHUD Configuration",
   "config.simplehud.enabled": "Enabled",
-
   "config.simplehud.editpositions": "Edit Element Positions",
   "config.simplehud.editpositions.tooltip": "Configure where HUD elements are displayed on-screen",
   "config.simplehud.editposition": "Edit Position",
@@ -10,12 +9,9 @@
   "config.simplehud.editposition.x.tooltip": "X Component of this element",
   "config.simplehud.editposition.y": "y",
   "config.simplehud.editposition.y.tooltip": "Y Component of this element",
-
-
   "config.simplehud.option.enabled": "HUD Enabled",
   "config.simplehud.option.enabled.tooltip": "Whether to display the custom HUD",
-
-  "element.simplehud.test.name": "Test Element",
-  "element.simplehud.test.tooltip": "A test HUD element",
-  "element.simplehud.test.display": "FPS: %d"
+  "element.simplehud.fps.name": "FPS Display",
+  "element.simplehud.fps.tooltip": "Displays frames per second rendered",
+  "element.simplehud.fps.display": "FPS: %d"
 }

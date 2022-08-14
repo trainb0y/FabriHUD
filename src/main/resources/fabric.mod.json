@@ -16,7 +16,7 @@
       "io.github.trainb0y.simplehud.SimpleHud"
     ],
     "modmenu": [
-      "io.github.trainb0y.simplehud.config.ModMenuIntegration"
+      "io.github.trainb0y.simplehud.config.gui.ModMenuIntegration"
     ]
   },
   "mixins": [

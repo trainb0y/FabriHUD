@@ -1,4 +1,4 @@
-package io.github.trainb0y.simplehud.config;
+package io.github.trainb0y.simplehud.config.gui;
 
 import dev.lambdaurora.spruceui.Position;
 import dev.lambdaurora.spruceui.SpruceTexts;
@@ -7,6 +7,7 @@ import dev.lambdaurora.spruceui.option.*;
 import dev.lambdaurora.spruceui.screen.SpruceScreen;
 import dev.lambdaurora.spruceui.widget.SpruceButtonWidget;
 import dev.lambdaurora.spruceui.widget.container.SpruceOptionListWidget;
+import io.github.trainb0y.simplehud.config.Config;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.util.math.MatrixStack;
@@ -50,7 +51,7 @@ public class ConfigScreen extends SpruceScreen {
         ));
 
         Config.elements.forEach((element) -> {
-            this.optionList.addSingleOptionEntry(new SpruceSeparatorOption(element.key + ".name", true, Text.translatable(element.key + ".tooltip")));
+            this.optionList.addSingleOptionEntry(new SpruceSeparatorOption(element.getKey() + ".name", true, Text.translatable(element.getKey() + ".tooltip")));
             this.optionList.addOptionEntry(new SpruceToggleBooleanOption("config.simplehud.enabled",
                             () -> element.enabled,
                             newValue -> element.enabled = newValue,
@@ -76,7 +77,10 @@ public class ConfigScreen extends SpruceScreen {
         this.addDrawableChild(this.optionList);
 
         this.addDrawableChild(new SpruceButtonWidget(Position.of(this, this.width / 2 - 155 + 160, this.height - 29), 150, 20, SpruceTexts.GUI_DONE,
-                btn -> this.client.setScreen(this.parent)).asVanilla());
+                (btn) -> {
+                    Config.saveConfig();
+                    this.client.setScreen(this.parent);
+                }).asVanilla());
     }
 
 }

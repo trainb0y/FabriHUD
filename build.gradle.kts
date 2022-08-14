@@ -20,6 +20,7 @@ repositories {
 dependencies {
     minecraft("com.mojang:minecraft:${property("minecraft_version")}")
     mappings("net.fabricmc:yarn:${property("yarn_mappings")}:v2")
+    implementation("org.spongepowered:configurate-hocon:${property("configurate_version")}")
     modImplementation("net.fabricmc:fabric-loader:${property("loader_version")}")
     modImplementation("net.fabricmc.fabric-api:fabric-api:${property("fabric_api_version")}")
     modImplementation("com.terraformersmc:modmenu:${property("mod_menu_version")}")
