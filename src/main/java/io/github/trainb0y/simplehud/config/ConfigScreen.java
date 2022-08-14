@@ -2,22 +2,17 @@ package io.github.trainb0y.simplehud.config;
 
 import dev.lambdaurora.spruceui.Position;
 import dev.lambdaurora.spruceui.SpruceTexts;
-import dev.lambdaurora.spruceui.background.Background;
 import dev.lambdaurora.spruceui.background.DirtTexturedBackground;
 import dev.lambdaurora.spruceui.option.*;
 import dev.lambdaurora.spruceui.screen.SpruceScreen;
 import dev.lambdaurora.spruceui.widget.SpruceButtonWidget;
-import dev.lambdaurora.spruceui.widget.SpruceWidget;
 import dev.lambdaurora.spruceui.widget.container.SpruceOptionListWidget;
-import io.github.trainb0y.simplehud.Element;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.Text;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class ConfigScreen extends SpruceScreen {
@@ -32,16 +27,16 @@ public class ConfigScreen extends SpruceScreen {
     }
 
     @Override
-	public void renderTitle(MatrixStack matrices, int mouseX, int mouseY, float delta) {
-		drawCenteredText(matrices, this.textRenderer, this.title, this.width / 2, 8, 0xFFFFFF);
-	}
+    public void renderTitle(MatrixStack matrices, int mouseX, int mouseY, float delta) {
+        drawCenteredText(matrices, this.textRenderer, this.title, this.width / 2, 8, 0xFFFFFF);
+    }
 
 
     @Override
     protected void init() {
         super.init();
 
-        this.optionList = new SpruceOptionListWidget(Position.of(0,22), this.width, this.height - 36 -22);
+        this.optionList = new SpruceOptionListWidget(Position.of(0, 22), this.width, this.height - 36 - 22);
         this.optionList.setBackground(DirtTexturedBackground.DARKENED);
         this.optionList.addOptionEntry(new SpruceBooleanOption("config.simplehud.option.enabled",
                 () -> Config.hudEnabled,
@@ -57,10 +52,10 @@ public class ConfigScreen extends SpruceScreen {
         Config.elements.forEach((element) -> {
             this.optionList.addSingleOptionEntry(new SpruceSeparatorOption(element.key + ".name", true, Text.translatable(element.key + ".tooltip")));
             this.optionList.addOptionEntry(new SpruceToggleBooleanOption("config.simplehud.enabled",
-                    () -> element.enabled,
-                    newValue -> element.enabled = newValue,
-                    null
-            ),
+                            () -> element.enabled,
+                            newValue -> element.enabled = newValue,
+                            null
+                    ),
                     SpruceSimpleActionOption.of("config.simplehud.editposition",
                             btn -> {
                                 client.setScreen(new PositionScreen(this, List.of(element)));

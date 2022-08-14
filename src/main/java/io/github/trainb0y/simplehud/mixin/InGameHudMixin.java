@@ -1,7 +1,5 @@
 package io.github.trainb0y.simplehud.mixin;
 
-import io.github.trainb0y.simplehud.Element;
-import io.github.trainb0y.simplehud.SimpleHud;
 import io.github.trainb0y.simplehud.config.Config;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawableHelper;
@@ -21,11 +19,11 @@ public class InGameHudMixin extends DrawableHelper {
     private MinecraftClient client;
 
     @Inject(method = "render", at = @At("TAIL"))
-    public void onRender (MatrixStack matrices, float tickDelta, CallbackInfo info) {
+    public void onRender(MatrixStack matrices, float tickDelta, CallbackInfo info) {
         if (!Config.hudEnabled) return;
         Config.elements.forEach((element) -> {
-                if (element.enabled) element.render(client, matrices);
-            }
+                    if (element.enabled) element.render(client, matrices);
+                }
         );
     }
 }

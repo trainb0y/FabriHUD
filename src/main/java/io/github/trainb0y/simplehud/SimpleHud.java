@@ -5,8 +5,6 @@ import io.github.trainb0y.simplehud.mixin.MinecraftClientMixin;
 import net.fabricmc.api.ClientModInitializer;
 import net.minecraft.text.Text;
 
-import java.util.List;
-
 public class SimpleHud implements ClientModInitializer {
 
     public void onInitializeClient() {
@@ -28,7 +26,8 @@ public class SimpleHud implements ClientModInitializer {
                         (client) -> Text.translatable("element.simplehud.test.display", ((MinecraftClientMixin) client).getCurrentFPS()),
                         true
                 )
-        ); Config.elements.add(
+        );
+        Config.elements.add(
                 new Element(
                         "element.simplehud.test",
                         50,
@@ -36,7 +35,8 @@ public class SimpleHud implements ClientModInitializer {
                         (client) -> Text.translatable("element.simplehud.test.display", ((MinecraftClientMixin) client).getCurrentFPS()),
                         true
                 )
-        ); Config.elements.add(
+        );
+        Config.elements.add(
                 new Element(
                         "element.simplehud.test",
                         50,
@@ -44,7 +44,8 @@ public class SimpleHud implements ClientModInitializer {
                         (client) -> Text.translatable("element.simplehud.test.display", ((MinecraftClientMixin) client).getCurrentFPS()),
                         true
                 )
-        ); Config.elements.add(
+        );
+        Config.elements.add(
                 new Element(
                         "element.simplehud.test",
                         50,
@@ -52,7 +53,8 @@ public class SimpleHud implements ClientModInitializer {
                         (client) -> Text.translatable("element.simplehud.test.display", ((MinecraftClientMixin) client).getCurrentFPS()),
                         true
                 )
-        ); Config.elements.add(
+        );
+        Config.elements.add(
                 new Element(
                         "element.simplehud.test",
                         50,
@@ -60,7 +62,8 @@ public class SimpleHud implements ClientModInitializer {
                         (client) -> Text.translatable("element.simplehud.test.display", ((MinecraftClientMixin) client).getCurrentFPS()),
                         true
                 )
-        ); Config.elements.add(
+        );
+        Config.elements.add(
                 new Element(
                         "element.simplehud.test",
                         50,
@@ -68,7 +71,8 @@ public class SimpleHud implements ClientModInitializer {
                         (client) -> Text.translatable("element.simplehud.test.display", ((MinecraftClientMixin) client).getCurrentFPS()),
                         true
                 )
-        ); Config.elements.add(
+        );
+        Config.elements.add(
                 new Element(
                         "element.simplehud.test",
                         50,
@@ -76,7 +80,8 @@ public class SimpleHud implements ClientModInitializer {
                         (client) -> Text.translatable("element.simplehud.test.display", ((MinecraftClientMixin) client).getCurrentFPS()),
                         true
                 )
-        ); Config.elements.add(
+        );
+        Config.elements.add(
                 new Element(
                         "element.simplehud.test",
                         50,
@@ -84,7 +89,8 @@ public class SimpleHud implements ClientModInitializer {
                         (client) -> Text.translatable("element.simplehud.test.display", ((MinecraftClientMixin) client).getCurrentFPS()),
                         true
                 )
-        ); Config.elements.add(
+        );
+        Config.elements.add(
                 new Element(
                         "element.simplehud.test",
                         50,
@@ -92,7 +98,8 @@ public class SimpleHud implements ClientModInitializer {
                         (client) -> Text.translatable("element.simplehud.test.display", ((MinecraftClientMixin) client).getCurrentFPS()),
                         true
                 )
-        ); Config.elements.add(
+        );
+        Config.elements.add(
                 new Element(
                         "element.simplehud.test",
                         50,

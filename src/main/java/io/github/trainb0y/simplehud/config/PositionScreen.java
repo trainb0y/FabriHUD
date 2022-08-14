@@ -31,7 +31,9 @@ public class PositionScreen extends SpruceScreen {
     public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
         super.render(matrices, mouseX, mouseY, delta);
         // Render the elements
-        elements.forEach((element) -> { element.render(client, matrices);});
+        elements.forEach((element) -> {
+            element.render(client, matrices);
+        });
     }
 
     @Override

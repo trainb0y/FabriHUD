@@ -12,6 +12,7 @@ public class Element {
         this.display = display;
         this.enabled = enabled;
     }
+
     public boolean enabled;
     public int x;
     public int y;
