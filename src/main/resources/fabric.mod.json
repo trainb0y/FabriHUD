@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "simplehud",
+  "version": "${version}",
+  "name": "SimpleHud",
+  "description": "A simple HUD mod for Fabric/Quilt",
+  "authors": [
+    "trainb0y"
+  ],
+  "contact": {},
+  "license": "GPL-3.0",
+  "icon": "assets/simplehud/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "io.github.trainb0y.simplehud.client.SimplehudClient"
+    ],
+    "main": [
+      "io.github.trainb0y.simplehud.Simplehud"
+    ]
+  },
+  "mixins": [
+    "simplehud.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.9",
+    "fabric": "*",
+    "minecraft": "1.19.2"
+  }
+}
