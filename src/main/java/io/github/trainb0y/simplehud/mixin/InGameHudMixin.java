@@ -1,5 +1,6 @@
 package io.github.trainb0y.simplehud.mixin;
 
+import io.github.trainb0y.simplehud.config.Config;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawableHelper;
 import net.minecraft.client.gui.hud.InGameHud;
@@ -19,6 +20,8 @@ public class InGameHudMixin extends DrawableHelper {
 
     @Inject(method = "render", at = @At("TAIL"))
     public void onRender (MatrixStack matrices, float tickDelta, CallbackInfo info) {
+        if (!Config.hudEnabled) return;
         client.textRenderer.draw(matrices, "Hey look, a thing!", 5, 5, -1);
+
     }
 }

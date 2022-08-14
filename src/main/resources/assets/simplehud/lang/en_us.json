@@ -1,4 +1,6 @@
 {
-  "config.simplehud.title": "Haha Text go BRRRRRR",
-  "config.simplehud.category.test": "A test category"
+  "config.simplehud.title": "SimpleHUD Configuration",
+  "config.simplehud.category.main": "Main Settings",
+  "config.simplehud.option.enabled": "HUD Enabled",
+  "config.simplehud.option.enabled.tooltip": "Whether to display the custom HUD"
 }
