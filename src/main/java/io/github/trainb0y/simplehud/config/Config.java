@@ -15,6 +15,7 @@ import static io.github.trainb0y.simplehud.SimpleHud.logger;
 
 @ConfigSerializable
 public class Config {
+    private static final String version = "1.0";
     public static boolean hudEnabled = true;
     public static ArrayList<Element> elements = new ArrayList<Element>();
 
@@ -26,9 +27,14 @@ public class Config {
         CommentedConfigurationNode root;
         try {
             root = loader.load();
+            String configVersion = root.node("version").getString();
+            if (version.equals(configVersion)) {
+                logger.warn("Found config version: "+ configVersion+", current version: "+version);
+                logger.warn("Attempting to load anyway");
+            }
             hudEnabled = root.node("enabled").getBoolean();
             elements = new ArrayList<Element>(Objects.requireNonNull(root.node("elements").getList(Element.class)));
-            if (elements.size() == 0) throw new NullPointerException(); // configurate doesnt error when file not found
+            if (elements.size() == 0) throw new NullPointerException(); // configurate doesn't error when file not found
             logger.info("Loaded existing configuration");
             return;
 
@@ -60,6 +66,7 @@ public class Config {
         CommentedConfigurationNode root;
         try {
             root = loader.load();
+            root.node("version").set(version);
             root.node("enabled").set(hudEnabled);
             root.node("elements").setList(Element.class, elements);
             loader.save(root);
