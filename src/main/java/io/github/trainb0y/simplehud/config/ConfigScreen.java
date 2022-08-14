@@ -20,6 +20,17 @@ public class ConfigScreen {
                         .setSaveConsumer(newValue -> Config.hudEnabled = newValue)
                 .build()
         );
+
+        ConfigCategory elements = builder.getOrCreateCategory(Text.translatable("config.simplehud.category.elements"));
+        Config.elements.forEach((element) -> {
+            elements.addEntry(entryBuilder.startBooleanToggle(Text.translatable(element.key + ".name"), element.enabled)
+                    .setDefaultValue(element.enabled)
+                    .setTooltip(Text.translatable(element.key + ".tooltip"))
+                    .setSaveConsumer(newValue -> element.enabled = newValue)
+                    .build()
+            );
+        });
+
         return builder.build();
     }
 }

@@ -1,6 +1,10 @@
 {
   "config.simplehud.title": "SimpleHUD Configuration",
   "config.simplehud.category.main": "Main Settings",
+  "config.simplehud.category.elements": "HUD Elements",
   "config.simplehud.option.enabled": "HUD Enabled",
-  "config.simplehud.option.enabled.tooltip": "Whether to display the custom HUD"
+  "config.simplehud.option.enabled.tooltip": "Whether to display the custom HUD",
+  "element.simplehud.test.name": "Test Element",
+  "element.simplehud.test.tooltip": "A test HUD element",
+  "element.simplehud.test.display": "FPS: %d"
 }
