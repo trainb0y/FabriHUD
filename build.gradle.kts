@@ -14,7 +14,7 @@ repositories {
     // See https://docs.gradle.org/current/userguide/declaring_repositories.html
     // for more information about repositories.
     maven(uri("https://maven.terraformersmc.com/"))
-    maven(uri("https://maven.shedaniel.me/"))
+    maven(uri("https://maven.gegy.dev"))
 }
 
 dependencies {
@@ -23,9 +23,7 @@ dependencies {
     modImplementation("net.fabricmc:fabric-loader:${property("loader_version")}")
     modImplementation("net.fabricmc.fabric-api:fabric-api:${property("fabric_api_version")}")
     modImplementation("com.terraformersmc:modmenu:${property("mod_menu_version")}")
-    modApi("me.shedaniel.cloth:cloth-config-fabric:${property("cloth_config_version")}") {
-        exclude("net.fabricmc.fabric-api")
-    }
+    modImplementation("dev.lambdaurora:spruceui:${property("spruce_ui_version")}")
 }
 
 tasks {
