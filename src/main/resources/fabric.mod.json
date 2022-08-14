@@ -13,10 +13,7 @@
   "environment": "client",
   "entrypoints": {
     "client": [
-      "io.github.trainb0y.simplehud.client.SimplehudClient"
-    ],
-    "main": [
-      "io.github.trainb0y.simplehud.Simplehud"
+      "io.github.trainb0y.simplehud.SimpleHud"
     ]
   },
   "mixins": [

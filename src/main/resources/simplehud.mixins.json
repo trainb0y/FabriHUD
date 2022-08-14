@@ -4,6 +4,7 @@
   "package": "io.github.trainb0y.simplehud.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "InGameHudMixin"
   ],
   "client": [
   ],
