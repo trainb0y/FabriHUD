@@ -56,6 +56,7 @@ public class Config {
                         true
                 )
         );
+        logger.info("Applied default config settings");
     }
 
     public static void saveConfig() {

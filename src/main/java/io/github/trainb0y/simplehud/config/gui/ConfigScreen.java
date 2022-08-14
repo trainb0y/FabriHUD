@@ -81,6 +81,13 @@ public class ConfigScreen extends SpruceScreen {
                     Config.saveConfig();
                     this.client.setScreen(this.parent);
                 }).asVanilla());
+
+        this.addDrawableChild(new SpruceButtonWidget(Position.of(this, this.width / 2 - 155, this.height - 29), 150, 20, SpruceTexts.CONTROLS_RESET,
+                (btn) -> {
+                    Config.applyDefaultConfig();
+                    Config.saveConfig();
+                    this.client.setScreen(new ConfigScreen(this.parent)); // values don't automatically update, so...
+                }).asVanilla());
     }
 
 }
