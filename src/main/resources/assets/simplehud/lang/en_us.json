@@ -15,7 +15,11 @@
 
   "config.simplehud.option.enabled": "HUD Enabled",
   "config.simplehud.option.enabled.tooltip": "Whether to display the custom HUD",
-  "element.simplehud.fps.name": "FPS Display",
+
+  "config.simplehud.option.colors": "Colors Enabled",
+  "config.simplehud.option.colors.tooltip": "Whether to color the HUD output",
+
+  "element.simplehud.fps.name": "FPS",
   "element.simplehud.fps.tooltip": "Displays frames per second rendered",
   "element.simplehud.fps.display": "FPS: %d",
 

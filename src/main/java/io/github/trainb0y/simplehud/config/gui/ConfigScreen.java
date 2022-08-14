@@ -43,12 +43,17 @@ public class ConfigScreen extends SpruceScreen {
                 () -> Config.hudEnabled,
                 value -> Config.hudEnabled = value,
                 Text.translatable("config.simplehud.option.enabled.tooltip")
-        ), SpruceSimpleActionOption.of("config.simplehud.editpositions",
+        ), new SpruceBooleanOption("config.simplehud.option.colors",
+                () -> Config.colors,
+                value -> Config.colors = value,
+                Text.translatable("config.simplehud.option.colors.tooltip")
+        ));
+        this.optionList.addSingleOptionEntry(SpruceSimpleActionOption.of("config.simplehud.editpositions",
                 btn -> {
                     client.setScreen(new PositionScreen(this, Config.elements.stream().filter(element -> element.enabled).toList()));
                 },
                 Text.translatable("config.simplehud.editposition.tooltip")
-        ));
+        );
 
         Config.elements.forEach((element) -> {
             this.optionList.addSingleOptionEntry(new SpruceSeparatorOption(element.getKey() + ".name", true, Text.translatable(element.getKey() + ".tooltip")));
