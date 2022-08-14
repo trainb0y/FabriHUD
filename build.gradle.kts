@@ -13,6 +13,8 @@ repositories {
     // Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
     // See https://docs.gradle.org/current/userguide/declaring_repositories.html
     // for more information about repositories.
+    maven(uri("https://maven.terraformersmc.com/"))
+    maven(uri("https://maven.shedaniel.me/"))
 }
 
 dependencies {
@@ -20,6 +22,10 @@ dependencies {
     mappings("net.fabricmc:yarn:${property("yarn_mappings")}:v2")
     modImplementation("net.fabricmc:fabric-loader:${property("loader_version")}")
     modImplementation("net.fabricmc.fabric-api:fabric-api:${property("fabric_api_version")}")
+    modImplementation("com.terraformersmc:modmenu:${property("mod_menu_version")}")
+    modApi("me.shedaniel.cloth:cloth-config-fabric:${property("cloth_config_version")}") {
+        exclude("net.fabricmc.fabric-api")
+    }
 }
 
 tasks {
