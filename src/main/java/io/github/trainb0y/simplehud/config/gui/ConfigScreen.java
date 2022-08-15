@@ -3,7 +3,12 @@ package io.github.trainb0y.simplehud.config.gui;
 import dev.lambdaurora.spruceui.Position;
 import dev.lambdaurora.spruceui.SpruceTexts;
 import dev.lambdaurora.spruceui.background.DirtTexturedBackground;
-import dev.lambdaurora.spruceui.option.*;
+import dev.lambdaurora.spruceui.option.SpruceBooleanOption;
+import dev.lambdaurora.spruceui.option.SpruceIntegerInputOption;
+import dev.lambdaurora.spruceui.option.SpruceSeparatorOption;
+import dev.lambdaurora.spruceui.option.SpruceSimpleActionOption;
+import dev.lambdaurora.spruceui.option.SpruceStringOption;
+import dev.lambdaurora.spruceui.option.SpruceToggleBooleanOption;
 import dev.lambdaurora.spruceui.screen.SpruceScreen;
 import dev.lambdaurora.spruceui.widget.SpruceButtonWidget;
 import dev.lambdaurora.spruceui.widget.container.SpruceOptionListWidget;
@@ -16,6 +21,9 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
+/**
+ * Primary configuration screen
+ */
 public class ConfigScreen extends SpruceScreen {
     private final Screen parent;
     private final MinecraftClient client = MinecraftClient.getInstance();

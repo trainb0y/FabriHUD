@@ -1,6 +1,11 @@
 package io.github.trainb0y.simplehud.config;
 
-import io.github.trainb0y.simplehud.elements.*;
+import io.github.trainb0y.simplehud.elements.BiomeElement;
+import io.github.trainb0y.simplehud.elements.Element;
+import io.github.trainb0y.simplehud.elements.FPSElement;
+import io.github.trainb0y.simplehud.elements.LatencyElement;
+import io.github.trainb0y.simplehud.elements.PositionElement;
+import io.github.trainb0y.simplehud.elements.TimeElement;
 import net.fabricmc.loader.api.FabricLoader;
 import org.spongepowered.configurate.CommentedConfigurationNode;
 import org.spongepowered.configurate.ConfigurateException;

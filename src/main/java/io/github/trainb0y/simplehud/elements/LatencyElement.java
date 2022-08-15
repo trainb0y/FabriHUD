@@ -4,6 +4,7 @@ import net.minecraft.client.MinecraftClient;
 
 import java.util.List;
 
+// HUD element displaying the client-server latency (ping)
 public class LatencyElement extends Element {
     public LatencyElement() {
         super();

@@ -36,7 +36,7 @@ public class PositionScreen extends SpruceScreen {
         });
     }
 
-    @Override
+    @Override // Moves selected elements to mouse position
     public boolean mouseDragged(double mouseX, double mouseY, int button, double deltaX, double deltaY) {
         if (button == GLFW.GLFW_MOUSE_BUTTON_LEFT && lastElement != null) {
             this.lastElement.x = (int) mouseX;
@@ -46,7 +46,7 @@ public class PositionScreen extends SpruceScreen {
     }
 
 
-    @Override
+    @Override // Handles selecting of elements
     public boolean mouseClicked(double mouseX, double mouseY, int button) {
         if (button == GLFW.GLFW_MOUSE_BUTTON_LEFT) {
             elements.forEach((element) -> {
@@ -58,14 +58,14 @@ public class PositionScreen extends SpruceScreen {
         return super.mouseClicked(mouseX, mouseY, button);
     }
 
-    @Override
+    @Override // Handles dropping of selected elements
     public boolean mouseReleased(double mouseX, double mouseY, int button) {
         if (button == GLFW.GLFW_MOUSE_BUTTON_LEFT) this.lastElement = null;
         return super.mouseReleased(mouseX, mouseY, button);
     }
 
     @Override
-    public void close() {
+    public void close() { // Close screen and switch to parent
         super.close();
         client.setScreen(parent);
     }

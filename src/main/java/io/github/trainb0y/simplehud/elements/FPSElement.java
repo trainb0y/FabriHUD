@@ -5,6 +5,7 @@ import net.minecraft.client.MinecraftClient;
 
 import java.util.List;
 
+// HUD element displaying framerate
 public class FPSElement extends Element {
     public FPSElement() {
         super();

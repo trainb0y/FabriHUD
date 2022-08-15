@@ -6,6 +6,7 @@ import net.minecraft.world.biome.Biome;
 
 import java.util.List;
 
+// Hud element displaying the player's current biome
 public class BiomeElement extends Element {
     public BiomeElement() {
         super();
@@ -23,7 +24,7 @@ public class BiomeElement extends Element {
         } catch (IndexOutOfBoundsException ignored) {
         }
 
-        return List.of(name).toArray();
+        return List.of(name).toArray(); // formatted biome name
     }
 
     @Override

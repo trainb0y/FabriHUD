@@ -5,6 +5,7 @@ import net.minecraft.util.math.BlockPos;
 
 import java.util.List;
 
+// HUD Element displaying position of player
 public class PositionElement extends Element {
     public PositionElement() {
         super();

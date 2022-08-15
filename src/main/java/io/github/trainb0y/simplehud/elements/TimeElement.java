@@ -4,6 +4,7 @@ import net.minecraft.client.MinecraftClient;
 
 import java.util.List;
 
+// HUD element displaying 24-hour ingame time
 public class TimeElement extends Element {
     public TimeElement() {
         super();

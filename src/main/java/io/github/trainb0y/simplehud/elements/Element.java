@@ -6,12 +6,27 @@ import net.minecraft.text.Text;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.configurate.objectmapping.ConfigSerializable;
 
+/**
+ * Represents a HUD element
+ */
 @ConfigSerializable
 public abstract class Element {
     @Nullable
     public String override;
+
+    /**
+     * Whether to display this Element
+     */
     public boolean enabled;
+
+    /**
+     * X component of this Element's position
+     */
     public int x;
+
+    /**
+     * Y component of this Element's position
+     */
     public int y;
     public Element(int x, int y, boolean enabled) {
         this.x = x;
@@ -23,6 +38,9 @@ public abstract class Element {
     public Element() {
     }
 
+    /**
+     * Renders this Element
+     */
     public void render(MinecraftClient client, MatrixStack matrices) {
         Text text;
         if (this.override != null) {
@@ -35,6 +53,9 @@ public abstract class Element {
 
     public abstract Object[] getArgs(MinecraftClient client);
 
+    /**
+     * @return the translation key for this Element's related text
+     */
     public abstract String getKey();
 }
 
