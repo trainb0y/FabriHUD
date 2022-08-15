@@ -13,7 +13,7 @@
   "environment": "client",
   "entrypoints": {
     "client": [
-      "io.github.trainb0y.fabrihud.FabriHud"
+      "io.github.trainb0y.fabrihud.FabriHUD"
     ],
     "modmenu": [
       "io.github.trainb0y.fabrihud.config.gui.ModMenuIntegration"
@@ -23,7 +23,7 @@
     "fabrihud.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.14.9",
+    "fabricloader": ">=0.14.8",
     "minecraft": "1.19.2"
   }
 }

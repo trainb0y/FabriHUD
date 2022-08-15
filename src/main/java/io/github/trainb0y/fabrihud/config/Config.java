@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import static io.github.trainb0y.fabrihud.FabriHud.logger;
+import static io.github.trainb0y.fabrihud.FabriHUD.logger;
 
 @ConfigSerializable
 public class Config {

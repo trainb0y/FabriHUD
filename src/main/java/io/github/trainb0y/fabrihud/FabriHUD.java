@@ -5,7 +5,7 @@ import net.fabricmc.api.ClientModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class FabriHud implements ClientModInitializer {
+public class FabriHUD implements ClientModInitializer {
     public static final Logger logger = LoggerFactory.getLogger("fabrihud");
 
     public void onInitializeClient() {
