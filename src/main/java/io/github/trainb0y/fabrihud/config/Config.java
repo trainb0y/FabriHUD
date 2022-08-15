@@ -1,11 +1,11 @@
-package io.github.trainb0y.simplehud.config;
+package io.github.trainb0y.fabrihud.config;
 
-import io.github.trainb0y.simplehud.elements.BiomeElement;
-import io.github.trainb0y.simplehud.elements.Element;
-import io.github.trainb0y.simplehud.elements.FPSElement;
-import io.github.trainb0y.simplehud.elements.LatencyElement;
-import io.github.trainb0y.simplehud.elements.PositionElement;
-import io.github.trainb0y.simplehud.elements.TimeElement;
+import io.github.trainb0y.fabrihud.elements.BiomeElement;
+import io.github.trainb0y.fabrihud.elements.Element;
+import io.github.trainb0y.fabrihud.elements.FPSElement;
+import io.github.trainb0y.fabrihud.elements.LatencyElement;
+import io.github.trainb0y.fabrihud.elements.PositionElement;
+import io.github.trainb0y.fabrihud.elements.TimeElement;
 import net.fabricmc.loader.api.FabricLoader;
 import org.spongepowered.configurate.CommentedConfigurationNode;
 import org.spongepowered.configurate.ConfigurateException;
@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import static io.github.trainb0y.simplehud.SimpleHud.logger;
+import static io.github.trainb0y.fabrihud.FabriHud.logger;
 
 @ConfigSerializable
 public class Config {
@@ -26,7 +26,7 @@ public class Config {
 
     public static void loadConfig() {
         HoconConfigurationLoader loader = HoconConfigurationLoader.builder()
-                .path(FabricLoader.getInstance().getConfigDir().resolve("simplehud.conf"))
+                .path(FabricLoader.getInstance().getConfigDir().resolve("fabrihud.conf"))
                 .build();
 
         CommentedConfigurationNode root;
@@ -66,7 +66,7 @@ public class Config {
 
     public static void saveConfig() {
         HoconConfigurationLoader loader = HoconConfigurationLoader.builder()
-                .path(FabricLoader.getInstance().getConfigDir().resolve("simplehud.conf"))
+                .path(FabricLoader.getInstance().getConfigDir().resolve("fabrihud.conf"))
                 .build();
 
         CommentedConfigurationNode root;

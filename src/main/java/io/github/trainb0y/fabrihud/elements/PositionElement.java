@@ -1,4 +1,4 @@
-package io.github.trainb0y.simplehud.elements;
+package io.github.trainb0y.fabrihud.elements;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.util.math.BlockPos;
@@ -22,6 +22,6 @@ public class PositionElement extends Element {
 
     @Override
     public String getKey() {
-        return "element.simplehud.position";
+        return "element.fabrihud.position";
     }
 }

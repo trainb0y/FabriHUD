@@ -1,4 +1,4 @@
-package io.github.trainb0y.simplehud.elements;
+package io.github.trainb0y.fabrihud.elements;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.util.registry.Registry;
@@ -29,6 +29,6 @@ public class BiomeElement extends Element {
 
     @Override
     public String getKey() {
-        return "element.simplehud.biome";
+        return "element.fabrihud.biome";
     }
 }

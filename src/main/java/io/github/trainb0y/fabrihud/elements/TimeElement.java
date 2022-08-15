@@ -1,4 +1,4 @@
-package io.github.trainb0y.simplehud.elements;
+package io.github.trainb0y.fabrihud.elements;
 
 import net.minecraft.client.MinecraftClient;
 
@@ -22,6 +22,6 @@ public class TimeElement extends Element {
 
     @Override
     public String getKey() {
-        return "element.simplehud.time";
+        return "element.fabrihud.time";
     }
 }

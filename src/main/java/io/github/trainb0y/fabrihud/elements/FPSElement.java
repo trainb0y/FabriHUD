@@ -1,6 +1,6 @@
-package io.github.trainb0y.simplehud.elements;
+package io.github.trainb0y.fabrihud.elements;
 
-import io.github.trainb0y.simplehud.mixin.MinecraftClientMixin;
+import io.github.trainb0y.fabrihud.mixin.MinecraftClientMixin;
 import net.minecraft.client.MinecraftClient;
 
 import java.util.List;
@@ -21,6 +21,6 @@ public class FPSElement extends Element {
 
     @Override
     public String getKey() {
-        return "element.simplehud.fps";
+        return "element.fabrihud.fps";
     }
 }

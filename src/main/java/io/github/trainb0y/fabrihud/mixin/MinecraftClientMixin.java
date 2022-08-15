@@ -1,4 +1,4 @@
-package io.github.trainb0y.simplehud.mixin;
+package io.github.trainb0y.fabrihud.mixin;
 
 import net.minecraft.client.MinecraftClient;
 import org.spongepowered.asm.mixin.Mixin;

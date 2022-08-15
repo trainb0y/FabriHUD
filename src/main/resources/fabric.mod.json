@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "id": "simplehud",
+  "id": "fabrihud",
   "version": "${version}",
-  "name": "SimpleHud",
+  "name": "FabriHUD",
   "description": "A simple HUD mod for Fabric/Quilt",
   "authors": [
     "trainb0y"
   ],
   "contact": {},
   "license": "GPL-3.0",
-  "icon": "assets/simplehud/icon.png",
+  "icon": "assets/fabrihud/icon.png",
   "environment": "client",
   "entrypoints": {
     "client": [
-      "io.github.trainb0y.simplehud.SimpleHud"
+      "io.github.trainb0y.fabrihud.FabriHud"
     ],
     "modmenu": [
-      "io.github.trainb0y.simplehud.config.gui.ModMenuIntegration"
+      "io.github.trainb0y.fabrihud.config.gui.ModMenuIntegration"
     ]
   },
   "mixins": [
-    "simplehud.mixins.json"
+    "fabrihud.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.14.9",

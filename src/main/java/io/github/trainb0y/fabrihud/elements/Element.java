@@ -1,4 +1,4 @@
-package io.github.trainb0y.simplehud.elements;
+package io.github.trainb0y.fabrihud.elements;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.util.math.MatrixStack;

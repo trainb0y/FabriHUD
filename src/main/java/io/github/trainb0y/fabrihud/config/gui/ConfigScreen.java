@@ -1,4 +1,4 @@
-package io.github.trainb0y.simplehud.config.gui;
+package io.github.trainb0y.fabrihud.config.gui;
 
 import dev.lambdaurora.spruceui.Position;
 import dev.lambdaurora.spruceui.SpruceTexts;
@@ -12,7 +12,7 @@ import dev.lambdaurora.spruceui.option.SpruceToggleBooleanOption;
 import dev.lambdaurora.spruceui.screen.SpruceScreen;
 import dev.lambdaurora.spruceui.widget.SpruceButtonWidget;
 import dev.lambdaurora.spruceui.widget.container.SpruceOptionListWidget;
-import io.github.trainb0y.simplehud.config.Config;
+import io.github.trainb0y.fabrihud.config.Config;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.util.math.MatrixStack;
@@ -31,7 +31,7 @@ public class ConfigScreen extends SpruceScreen {
 
 
     public ConfigScreen(@Nullable Screen parent) {
-        super(Text.translatable("config.simplehud.title"));
+        super(Text.translatable("config.fabrihud.title"));
         this.parent = parent;
     }
 
@@ -47,48 +47,48 @@ public class ConfigScreen extends SpruceScreen {
 
         this.optionList = new SpruceOptionListWidget(Position.of(0, 22), this.width, this.height - 36 - 22);
         this.optionList.setBackground(DirtTexturedBackground.DARKENED);
-        this.optionList.addOptionEntry(new SpruceBooleanOption("config.simplehud.option.enabled",
+        this.optionList.addOptionEntry(new SpruceBooleanOption("config.fabrihud.option.enabled",
                 () -> Config.hudEnabled,
                 value -> Config.hudEnabled = value,
-                Text.translatable("config.simplehud.option.enabled.tooltip")
-        ), SpruceSimpleActionOption.of("config.simplehud.editpositions",
+                Text.translatable("config.fabrihud.option.enabled.tooltip")
+        ), SpruceSimpleActionOption.of("config.fabrihud.editpositions",
                 btn -> {
                     client.setScreen(new PositionScreen(this, Config.elements.stream().filter(element -> element.enabled).toList()));
                 },
-                Text.translatable("config.simplehud.editposition.tooltip")
+                Text.translatable("config.fabrihud.editposition.tooltip")
         ));
 
         Config.elements.forEach((element) -> {
             this.optionList.addSingleOptionEntry(new SpruceSeparatorOption(element.getKey() + ".name", true, Text.translatable(element.getKey() + ".tooltip")));
-            this.optionList.addOptionEntry(new SpruceToggleBooleanOption("config.simplehud.enabled",
+            this.optionList.addOptionEntry(new SpruceToggleBooleanOption("config.fabrihud.enabled",
                             () -> element.enabled,
                             value -> element.enabled = value,
                             null
                     ),
-                    SpruceSimpleActionOption.of("config.simplehud.editposition",
+                    SpruceSimpleActionOption.of("config.fabrihud.editposition",
                             btn -> {
                                 client.setScreen(new PositionScreen(this, List.of(element)));
                             },
-                            Text.translatable("config.simplehud.editposition.tooltip")
+                            Text.translatable("config.fabrihud.editposition.tooltip")
                     ));
-            this.optionList.addSingleOptionEntry(new SpruceStringOption("config.simplehud.override",
+            this.optionList.addSingleOptionEntry(new SpruceStringOption("config.fabrihud.override",
                     () -> element.override,
                     value -> {
                         if (value == "") element.override = null;
                         else element.override = value;
                     },
                     null,
-                    Text.translatable("config.simplehud.override.tooltip")
+                    Text.translatable("config.fabrihud.override.tooltip")
             ));
 
-            this.optionList.addOptionEntry(new SpruceIntegerInputOption("config.simplehud.editposition.x",
+            this.optionList.addOptionEntry(new SpruceIntegerInputOption("config.fabrihud.editposition.x",
                     () -> element.x,
                     value -> element.x = value,
-                    Text.translatable("config.simplehud.editposition.x.tooltip")
-            ), new SpruceIntegerInputOption("config.simplehud.editposition.y",
+                    Text.translatable("config.fabrihud.editposition.x.tooltip")
+            ), new SpruceIntegerInputOption("config.fabrihud.editposition.y",
                     () -> element.y,
                     value -> element.y = value,
-                    Text.translatable("config.simplehud.editposition.y.tooltip")
+                    Text.translatable("config.fabrihud.editposition.y.tooltip")
             ));
         });
 

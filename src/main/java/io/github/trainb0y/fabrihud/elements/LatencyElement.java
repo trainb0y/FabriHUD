@@ -1,4 +1,4 @@
-package io.github.trainb0y.simplehud.elements;
+package io.github.trainb0y.fabrihud.elements;
 
 import net.minecraft.client.MinecraftClient;
 
@@ -26,6 +26,6 @@ public class LatencyElement extends Element {
 
     @Override
     public String getKey() {
-        return "element.simplehud.latency";
+        return "element.fabrihud.latency";
     }
 }

@@ -1,6 +1,6 @@
-package io.github.trainb0y.simplehud.mixin;
+package io.github.trainb0y.fabrihud.mixin;
 
-import io.github.trainb0y.simplehud.config.Config;
+import io.github.trainb0y.fabrihud.config.Config;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawableHelper;
 import net.minecraft.client.gui.hud.InGameHud;

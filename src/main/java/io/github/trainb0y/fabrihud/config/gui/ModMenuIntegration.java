@@ -1,4 +1,4 @@
-package io.github.trainb0y.simplehud.config.gui;
+package io.github.trainb0y.fabrihud.config.gui;
 
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import com.terraformersmc.modmenu.api.ModMenuApi;
