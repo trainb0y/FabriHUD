@@ -1,3 +1,8 @@
+![modrinth badge](https://modrinth-utils.vercel.app/api/badge/downloads?logo=true&style=flat&id=JW9YUcl3)
+![curseforge_badge](https://cf.way2muchnoise.eu/661156.svg)
+
+[Modrinth](https://modrinth.com/mod/fabrihud/) | [CurseForge](https://www.curseforge.com/minecraft/mc-mods/fabrihud)
+
 ### Requirements
 - Minecraft `>1.19.2`
 - [Fabric Loader](https://fabricmc.net/) `>0.14.8` or the equivalent [Quilt](https://quiltmc.org/) version
