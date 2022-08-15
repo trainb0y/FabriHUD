@@ -74,7 +74,7 @@ public class ConfigScreen extends SpruceScreen {
             this.optionList.addSingleOptionEntry(new SpruceStringOption("config.fabrihud.override",
                     () -> element.override,
                     value -> {
-                        if (value == "") element.override = null;
+                        if (value.strip() == "") element.override = null;
                         else element.override = value;
                     },
                     null,
