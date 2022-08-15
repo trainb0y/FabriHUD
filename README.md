@@ -1,4 +1,4 @@
-t)  ### Requirements
+### Requirements
 - Minecraft `>1.19.2`
 - [Fabric Loader](https://fabricmc.net/) `>0.14.8` or the equivalent [Quilt](https://quiltmc.org/) version
 - [ModMenu](https://github.com/TerraformersMC/ModMenu) `>4.0.0`  
@@ -23,7 +23,7 @@ More information about element overrides can be found [here](https://github.com/
   
 ### Contributions 
 All contributions are welcome, including translations. The source code is licensed under MIT.  
-If you have a feature request or run into an issue, please report it on the [GitHub](https://giithub.com/trainb0y/FabriHUD). For help join https://discord.gg/C3x47vB2vg or DM @trainb0y#7688  
+If you have a feature request or run into an issue, please report it on the [GitHub](https://giithub.com/trainb0y/FabriHUD). For help join [the Discord](https://discord.gg/PPCvtMTXvP).  
 
 Thanks to [Configurate](https://github.com/SpongePowered/Configurate) and [SpruceUI](https://github.com/LambdAurora/SpruceUI) for the exellent libraries.
 #### Disclaimer: This is my first real attempt at making a mod, so I make no promises to code quality and best practices. However, if issues arise I'll do my best to fix them.
