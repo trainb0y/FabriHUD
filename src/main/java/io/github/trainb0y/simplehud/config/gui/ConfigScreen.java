@@ -54,7 +54,7 @@ public class ConfigScreen extends SpruceScreen {
             this.optionList.addSingleOptionEntry(new SpruceSeparatorOption(element.getKey() + ".name", true, Text.translatable(element.getKey() + ".tooltip")));
             this.optionList.addOptionEntry(new SpruceToggleBooleanOption("config.simplehud.enabled",
                             () -> element.enabled,
-                            newValue -> element.enabled = newValue,
+                            value -> element.enabled = value,
                             null
                     ),
                     SpruceSimpleActionOption.of("config.simplehud.editposition",
@@ -63,6 +63,16 @@ public class ConfigScreen extends SpruceScreen {
                             },
                             Text.translatable("config.simplehud.editposition.tooltip")
                     ));
+            this.optionList.addSingleOptionEntry(new SpruceStringOption("config.simplehud.override",
+                    () -> element.override,
+                    value -> {
+                        if (value == "") element.override = null;
+                        else element.override = value;
+                    },
+                    null,
+                    Text.translatable("config.simplehud.override.tooltip")
+            ));
+
             this.optionList.addOptionEntry(new SpruceIntegerInputOption("config.simplehud.editposition.x",
                     () -> element.x,
                     value -> element.x = value,

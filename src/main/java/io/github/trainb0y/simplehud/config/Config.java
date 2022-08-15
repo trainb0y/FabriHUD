@@ -1,7 +1,6 @@
 package io.github.trainb0y.simplehud.config;
 
-import io.github.trainb0y.simplehud.elements.Element;
-import io.github.trainb0y.simplehud.elements.FPSElement;
+import io.github.trainb0y.simplehud.elements.*;
 import net.fabricmc.loader.api.FabricLoader;
 import org.spongepowered.configurate.CommentedConfigurationNode;
 import org.spongepowered.configurate.ConfigurateException;
@@ -9,6 +8,7 @@ import org.spongepowered.configurate.hocon.HoconConfigurationLoader;
 import org.spongepowered.configurate.objectmapping.ConfigSerializable;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import static io.github.trainb0y.simplehud.SimpleHud.logger;
@@ -49,13 +49,13 @@ public class Config {
     public static void applyDefaultConfig() {
         Config.elements = new ArrayList<>();
         Config.hudEnabled = true;
-        Config.elements.add(
-                new FPSElement(
-                        50,
-                        5,
-                        true
-                )
-        );
+        Config.elements.addAll(List.of(
+                new FPSElement(5, 5, true),
+                new BiomeElement(5, 10, false),
+                new LatencyElement(5, 10, false),
+                new PositionElement(5, 10, false),
+                new TimeElement(5, 10, false)
+        ));
         logger.info("Applied default config settings");
     }
 

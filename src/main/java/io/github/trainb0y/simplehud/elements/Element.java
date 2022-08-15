@@ -3,7 +3,10 @@ package io.github.trainb0y.simplehud.elements;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.Text;
+import org.jetbrains.annotations.Nullable;
 import org.spongepowered.configurate.objectmapping.ConfigSerializable;
+
+import java.util.List;
 
 @ConfigSerializable
 public abstract class Element {
@@ -18,15 +21,25 @@ public abstract class Element {
     public Element() {
     }
 
+    @Nullable
+    public String override;
+
     public boolean enabled;
     public int x;
     public int y;
 
     public void render(MinecraftClient client, MatrixStack matrices) {
-        client.textRenderer.draw(matrices, this.getText(client), this.x, this.y, -1);
+        Text text;
+        if (this.override != null) {
+            text = Text.literal(override.formatted(getArgs(client)));
+        }
+        else {
+            text = Text.translatable(getKey() + ".display", getArgs(client));
+        }
+        client.textRenderer.draw(matrices, text, this.x, this.y, -1);
     }
 
-    public abstract Text getText(MinecraftClient client);
+    public abstract Object[] getArgs(MinecraftClient client);
 
     public abstract String getKey();
 }

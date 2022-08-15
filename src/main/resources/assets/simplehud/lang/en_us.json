@@ -8,6 +8,9 @@
   "config.simplehud.editposition": "Edit Position",
   "config.simplehud.editposition.tooltip": "Configure where this HUD element is displayed on-screen",
 
+  "config.simplehud.override": "Override",
+  "config.simplehud.override.tooltip": "Override the text of this element (Can be used for color codes and more)",
+
   "config.simplehud.editposition.x": "x",
   "config.simplehud.editposition.x.tooltip": "X Component of this element",
   "config.simplehud.editposition.y": "y",
@@ -33,5 +36,5 @@
 
   "element.simplehud.time.name": "Time",
   "element.simplehud.time.tooltip": "Displays the ingame time",
-  "element.simplehud.time.display": "Time: %d"
+  "element.simplehud.time.display": "Time: %02d:%02d"
 }

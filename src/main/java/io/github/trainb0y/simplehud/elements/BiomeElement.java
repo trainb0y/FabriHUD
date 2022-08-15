@@ -5,18 +5,20 @@ import net.minecraft.text.Text;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 
+import java.util.List;
+
 public class BiomeElement extends Element {
     public BiomeElement() {super();}
     public BiomeElement(int x, int y, boolean enabled) {super(x, y, enabled);}
 
-    public Text getText(MinecraftClient client) {
+    public Object[] getArgs(MinecraftClient client) {
         Biome biome = client.world != null ? client.world.getBiome(client.player != null ? client.player.getBlockPos() : null).value() : null;
         String name = String.valueOf(client.world != null ? client.world.getRegistryManager().get(Registry.BIOME_KEY).getId(biome) : null);
         try {
             name = name.split(":")[1].replace("_", " ");
         } catch (IndexOutOfBoundsException ignored) {}
 
-        return Text.translatable(getKey() + ".display", name);
+        return List.of(name).toArray();
     }
 
     @Override
