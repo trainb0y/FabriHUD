@@ -20,7 +20,17 @@ repositories {
 dependencies {
     minecraft("com.mojang:minecraft:${property("minecraft_version")}")
     mappings("net.fabricmc:yarn:${property("yarn_mappings")}:v2")
+
+    // Configurate
     implementation("org.spongepowered:configurate-hocon:${property("configurate_version")}")
+    include("org.spongepowered:configurate-core:${property("configurate_version")}")
+    include("org.spongepowered:configurate-hocon:${property("configurate_version")}")
+
+    // Configurate's dependencies
+    include("com.google.guava:guava:31.1-jre")   // guava
+    include("com.typesafe:config:1.4.2")         // hocon
+    include("io.leangen.geantyref:geantyref:1.3.12") // reflection
+
     modImplementation("net.fabricmc:fabric-loader:${property("loader_version")}")
     modImplementation("com.terraformersmc:modmenu:${property("mod_menu_version")}")
     modImplementation("dev.lambdaurora:spruceui:${property("spruce_ui_version")}")
