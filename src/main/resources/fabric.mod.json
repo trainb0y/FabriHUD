@@ -5,9 +5,18 @@
   "name": "FabriHUD",
   "description": "A simple HUD mod for Fabric/Quilt",
   "authors": [
-    "trainb0y"
+    {
+      "name": "trainb0y",
+      "contact": {
+        "email": "trainb0ydev@gmail.com",
+        "discord": "trainb0y#7688"
+      }
+    }
   ],
-  "contact": {},
+  "contact": {
+    "issues": "https://github.com/trainb0y/FabriHUD/issues",
+    "sources": "https://github.com/trainb0y/FabriHUD"
+  },
   "license": "GPL-3.0",
   "icon": "assets/fabrihud/icon.png",
   "environment": "client",
