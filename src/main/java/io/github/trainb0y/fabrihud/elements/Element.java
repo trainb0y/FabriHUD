@@ -6,6 +6,8 @@ import net.minecraft.text.Text;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.configurate.objectmapping.ConfigSerializable;
 
+import java.util.IllegalFormatException;
+
 /**
  * Represents a HUD element
  */
@@ -43,10 +45,15 @@ public abstract class Element {
      */
     public void render(MinecraftClient client, MatrixStack matrices) {
         Text text;
-        if (this.override != null) {
-            text = Text.literal(override.formatted(getArgs(client)));
-        } else {
-            text = Text.translatable(getKey() + ".display", getArgs(client));
+        try {
+            if (this.override != null) {
+                text = Text.literal(override.formatted(getArgs(client)));
+            } else {
+                text = Text.translatable(getKey() + ".display", getArgs(client));
+            }
+        }
+        catch (IllegalFormatException e) {
+            text = Text.literal("FORMATTING ERROR");
         }
         client.textRenderer.draw(matrices, text, this.x, this.y, -1);
     }
