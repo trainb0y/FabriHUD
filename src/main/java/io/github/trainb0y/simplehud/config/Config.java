@@ -29,7 +29,7 @@ public class Config {
             root = loader.load();
             String configVersion = root.node("version").getString();
             if (version.equals(configVersion)) {
-                logger.warn("Found config version: "+ configVersion+", current version: "+version);
+                logger.warn("Found config version: " + configVersion + ", current version: " + version);
                 logger.warn("Attempting to load anyway");
             }
             hudEnabled = root.node("enabled").getBoolean();
