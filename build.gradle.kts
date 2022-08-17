@@ -2,6 +2,7 @@ plugins {
     id("fabric-loom")
     `maven-publish`
     java
+    kotlin("jvm") version "1.7.10"
 }
 
 group = property("maven_group")!!
@@ -15,6 +16,7 @@ repositories {
     // for more information about repositories.
     maven(uri("https://maven.terraformersmc.com/"))
     maven(uri("https://maven.gegy.dev"))
+    mavenCentral()
 }
 
 dependencies {
@@ -34,6 +36,7 @@ dependencies {
     modImplementation("net.fabricmc:fabric-loader:${property("loader_version")}")
     modImplementation("com.terraformersmc:modmenu:${property("mod_menu_version")}")
     modImplementation("dev.lambdaurora:spruceui:${property("spruce_ui_version")}")
+    modImplementation("net.fabricmc:fabric-language-kotlin:${property("fabric_kotlin_version")}")
 }
 
 tasks {
@@ -72,5 +75,3 @@ java {
     // If you remove this line, sources will not be generated.
     withSourcesJar()
 }
-
-
