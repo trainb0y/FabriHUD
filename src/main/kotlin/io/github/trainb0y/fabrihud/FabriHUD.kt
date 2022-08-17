@@ -11,6 +11,6 @@ class FabriHUD : ClientModInitializer {
 	}
 
 	companion object {
-		val logger: Logger = LoggerFactory.getLogger("io/github/trainb0y/fabrihud")
+		val logger: Logger = LoggerFactory.getLogger("fabrihud")
 	}
 }

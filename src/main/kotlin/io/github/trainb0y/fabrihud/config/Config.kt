@@ -12,8 +12,7 @@ import org.spongepowered.configurate.CommentedConfigurationNode
 import org.spongepowered.configurate.ConfigurateException
 import org.spongepowered.configurate.hocon.HoconConfigurationLoader
 import org.spongepowered.configurate.objectmapping.ConfigSerializable
-import java.util.*
-import java.util.List
+import java.util.Objects
 
 @ConfigSerializable
 object Config {
@@ -23,7 +22,7 @@ object Config {
 	var hudEnabled = true
 
 	@JvmField
-	var elements = ArrayList<Element>()
+	var elements = listOf<Element>()
 
 	@JvmStatic
 	fun loadConfig() {
@@ -34,13 +33,13 @@ object Config {
 		try {
 			root = loader.load()
 			val configVersion = root.node("version").string
-			if (version == configVersion) {
-				FabriHUD.logger.warn("Found config version: " + configVersion + ", current version: " + version)
+			if (version != configVersion) {
+				FabriHUD.logger.warn("Found config version: $configVersion, current version: $version")
 				FabriHUD.logger.warn("Attempting to load anyway")
 			}
 			hudEnabled = root.node("enabled").boolean
 			elements = ArrayList(Objects.requireNonNull(root.node("elements").getList(Element::class.java)))
-			if (elements.size == 0) throw NullPointerException() // configurate doesn't error when file not found
+			if (elements.isEmpty()) throw NullPointerException() // configurate doesn't error when file not found
 			FabriHUD.logger.info("Loaded existing configuration")
 			return
 		} catch (e: ConfigurateException) {
@@ -52,15 +51,14 @@ object Config {
 	}
 
 	fun applyDefaultConfig() {
-		elements = ArrayList()
 		hudEnabled = true
-		elements.addAll(List.of(
+		elements = listOf(
 				FPSElement(5, 5, true),
 				BiomeElement(5, 10, false),
 				LatencyElement(5, 10, false),
 				PositionElement(5, 10, false),
 				TimeElement(5, 10, false)
-		))
+		)
 		FabriHUD.logger.info("Applied default config settings")
 	}
 

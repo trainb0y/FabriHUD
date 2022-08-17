@@ -2,7 +2,6 @@ package io.github.trainb0y.fabrihud.config.gui
 
 import dev.lambdaurora.spruceui.screen.SpruceScreen
 import io.github.trainb0y.fabrihud.elements.Element
-import net.minecraft.client.MinecraftClient
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.text.Text

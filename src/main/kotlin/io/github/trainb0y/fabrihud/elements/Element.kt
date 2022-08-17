@@ -4,7 +4,7 @@ import net.minecraft.client.MinecraftClient
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.text.Text
 import org.spongepowered.configurate.objectmapping.ConfigSerializable
-import java.util.*
+import java.util.IllegalFormatException
 
 /**
  * Represents a HUD element
@@ -43,12 +43,11 @@ abstract class Element {
 	 * Renders this Element
 	 */
 	fun render(client: MinecraftClient, matrices: MatrixStack?) {
-		val text: Text?
-		text = try {
+		val text: Text? = try {
 			if (override != null) {
-				Text.literal(override!!.formatted(*getArgs(client)))
+				Text.literal(override!!.format(getArgs(client)))
 			} else {
-				Text.translatable(key + ".display", *getArgs(client))
+				Text.translatable("$key.display", *getArgs(client).toTypedArray())
 			}
 		} catch (e: IllegalFormatException) {
 			Text.literal("FORMATTING ERROR")
@@ -56,7 +55,7 @@ abstract class Element {
 		client.textRenderer.draw(matrices, text, x.toFloat(), y.toFloat(), -1)
 	}
 
-	abstract fun getArgs(client: MinecraftClient): Array<Any?>
+	abstract fun getArgs(client: MinecraftClient): List<Any?>
 
 	/**
 	 * @return the translation key for this Element's related text
