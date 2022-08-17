@@ -45,7 +45,7 @@ abstract class Element {
 	fun render(client: MinecraftClient, matrices: MatrixStack?) {
 		val text: Text? = try {
 			if (override != null) {
-				Text.literal(override!!.format(getArgs(client)))
+				Text.literal(override!!.format(*getArgs(client).toTypedArray()))
 			} else {
 				Text.translatable("$key.display", *getArgs(client).toTypedArray())
 			}
