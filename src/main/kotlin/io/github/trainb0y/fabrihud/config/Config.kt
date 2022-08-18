@@ -12,7 +12,7 @@ import org.spongepowered.configurate.CommentedConfigurationNode
 import org.spongepowered.configurate.ConfigurateException
 import org.spongepowered.configurate.hocon.HoconConfigurationLoader
 import org.spongepowered.configurate.objectmapping.ConfigSerializable
-import java.util.Objects
+import java.nio.file.Path
 
 @ConfigSerializable
 object Config {
@@ -21,15 +21,19 @@ object Config {
 	@JvmField
 	var hudEnabled = true
 
-	@JvmField
-	var elements = listOf<Element>()
 
 	@JvmStatic
+	var elements = listOf<Element>()
+		private set
+
+	private val configPath: Path = FabricLoader.getInstance().configDir.resolve("fabrihud.conf")
+
 	fun loadConfig() {
 		val loader = HoconConfigurationLoader.builder()
-				.path(FabricLoader.getInstance().configDir.resolve("fabrihud.conf"))
+				.path(configPath)
 				.build()
 		val root: CommentedConfigurationNode
+
 		try {
 			root = loader.load()
 			val configVersion = root.node("version").string
@@ -37,11 +41,15 @@ object Config {
 				FabriHUD.logger.warn("Found config version: $configVersion, current version: $version")
 				FabriHUD.logger.warn("Attempting to load anyway")
 			}
+
 			hudEnabled = root.node("enabled").boolean
-			elements = ArrayList(Objects.requireNonNull(root.node("elements").getList(Element::class.java)))
+			elements = root.node("elements").getList(Element::class.java)!!.toList()
+
+
 			if (elements.isEmpty()) throw NullPointerException() // configurate doesn't error when file not found
 			FabriHUD.logger.info("Loaded existing configuration")
 			return
+
 		} catch (e: ConfigurateException) {
 			FabriHUD.logger.warn("Failed to load existing configuration! Using defaults. $e")
 		} catch (e: NullPointerException) {
@@ -64,7 +72,7 @@ object Config {
 
 	fun saveConfig() {
 		val loader = HoconConfigurationLoader.builder()
-				.path(FabricLoader.getInstance().configDir.resolve("fabrihud.conf"))
+				.path(configPath)
 				.build()
 		val root: CommentedConfigurationNode
 		try {

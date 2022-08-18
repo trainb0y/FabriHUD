@@ -21,7 +21,7 @@ public class InGameHudMixin extends DrawableHelper {
 	@Inject(method = "render", at = @At("TAIL"))
 	public void onRender(MatrixStack matrices, float tickDelta, CallbackInfo info) {
 		if (!Config.hudEnabled) return;
-		Config.elements.forEach((element) -> {
+		Config.getElements().forEach((element) -> {
 					if (element.enabled) element.render(client, matrices);
 				}
 		);

@@ -25,8 +25,11 @@ dependencies {
 
     // Configurate
     implementation("org.spongepowered:configurate-hocon:${property("configurate_version")}")
+    implementation("org.spongepowered:configurate-extra-kotlin:${property("configurate_version")}")
+
     include("org.spongepowered:configurate-core:${property("configurate_version")}")
     include("org.spongepowered:configurate-hocon:${property("configurate_version")}")
+    include("org.spongepowered:configurate-extra-kotlin:${property("configurate_version")}")
 
     // Configurate's dependencies
     include("com.google.guava:guava:31.1-jre")   // guava
