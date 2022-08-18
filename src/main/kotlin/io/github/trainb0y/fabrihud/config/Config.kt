@@ -5,6 +5,7 @@ import io.github.trainb0y.fabrihud.elements.BiomeElement
 import io.github.trainb0y.fabrihud.elements.Element
 import io.github.trainb0y.fabrihud.elements.FPSElement
 import io.github.trainb0y.fabrihud.elements.LatencyElement
+import io.github.trainb0y.fabrihud.elements.LightElement
 import io.github.trainb0y.fabrihud.elements.PositionElement
 import io.github.trainb0y.fabrihud.elements.TimeElement
 import net.fabricmc.loader.api.FabricLoader
@@ -65,7 +66,8 @@ object Config {
 				BiomeElement(5, 10, false),
 				LatencyElement(5, 10, false),
 				PositionElement(5, 10, false),
-				TimeElement(5, 10, false)
+				TimeElement(5, 10, false),
+				LightElement(5, 10, false)
 		)
 		FabriHUD.logger.info("Applied default config settings")
 	}

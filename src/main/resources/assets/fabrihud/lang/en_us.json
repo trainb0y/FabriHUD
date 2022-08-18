@@ -27,5 +27,8 @@
   "element.fabrihud.position.display": "(%d, %d, %d)",
   "element.fabrihud.time.name": "Time",
   "element.fabrihud.time.tooltip": "Displays the ingame time",
-  "element.fabrihud.time.display": "Time: %1d:%1d"
+  "element.fabrihud.time.display": "Time: %1d:%1d",
+  "element.fabrihud.light.name": "Light",
+  "element.fabrihud.light.tooltip": "Displays the light level at the player",
+  "element.fabrihud.light.display": "Light: %d"
 }
