@@ -2,10 +2,7 @@ package io.github.trainb0y.fabrihud.elements
 
 import net.minecraft.client.MinecraftClient
 
-class LightElement : Element {
-	constructor() : super()
-	constructor(x: Int, y: Int, enabled: Boolean) : super(x, y, enabled)
-
+class LightElement : Element() {
 	override fun getArgs(client: MinecraftClient): List<Any?> {
 
 		return listOf(client.world?.lightingProvider?.getLight(client.player?.blockPos, 0) ?: -1)

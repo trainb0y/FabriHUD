@@ -10,7 +10,7 @@ import java.util.IllegalFormatException
  * Represents a HUD element
  */
 @ConfigSerializable
-abstract class Element {
+abstract class Element() {
 	var override: String? = null
 
 	/**
@@ -29,15 +29,11 @@ abstract class Element {
 	 */
 	var y = 0
 
-	constructor(x: Int, y: Int, enabled: Boolean) {
+	constructor(x: Int, y: Int, enabled: Boolean) : this() {
 		this.x = x
 		this.y = y
 		this.enabled = enabled
 	}
-
-	// Needed for Configurate
-	// "Objects must have a zero-argument constructor to be able to create new instances"
-	constructor()
 
 	/**
 	 * Renders this Element

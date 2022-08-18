@@ -4,10 +4,7 @@ import net.minecraft.client.MinecraftClient
 import net.minecraft.util.registry.Registry
 
 // Hud element displaying the player's current biome
-class BiomeElement : Element {
-	constructor() : super()
-	constructor(x: Int, y: Int, enabled: Boolean) : super(x, y, enabled)
-
+class BiomeElement : Element() {
 	override fun getArgs(client: MinecraftClient): List<Any?> {
 		val biome = client.world?.getBiome(client.player?.blockPos)?.value()
 		var name = client.world?.registryManager?.get(Registry.BIOME_KEY)?.getId(biome).toString()
