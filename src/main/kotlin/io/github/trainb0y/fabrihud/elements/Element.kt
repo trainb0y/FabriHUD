@@ -50,7 +50,7 @@ abstract class Element {
 				Text.translatable("$key.display", *getArgs(client).toTypedArray())
 			}
 		} catch (e: IllegalFormatException) {
-			Text.literal("FORMATTING ERROR")
+			Text.translatable("error.fabrihud.formatting")
 		}
 		client.textRenderer.draw(matrices, text, x.toFloat(), y.toFloat(), -1)
 	}

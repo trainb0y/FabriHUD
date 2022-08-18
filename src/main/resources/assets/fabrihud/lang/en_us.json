@@ -1,4 +1,5 @@
 {
+  "error.fabrihud.formatting": "FORMATTING ERROR",
   "config.fabrihud.title": "fabrihud Configuration",
   "config.fabrihud.enabled": "Enabled",
   "config.fabrihud.editpositions": "Edit Element Positions",
