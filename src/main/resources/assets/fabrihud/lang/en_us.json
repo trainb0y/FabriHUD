@@ -14,6 +14,8 @@
   "config.fabrihud.editposition.y.tooltip": "Y Component of this element",
   "config.fabrihud.option.enabled": "HUD Enabled",
   "config.fabrihud.option.enabled.tooltip": "Whether to display the custom HUD",
+  "config.fabrihud.shadow": "Text Shadow",
+  "config.fabrihud.shadow.tooltip": "Whether to display this element with a text shadow",
   "element.fabrihud.fps.name": "FPS Display",
   "element.fabrihud.fps.tooltip": "Displays frames per second rendered",
   "element.fabrihud.fps.display": "FPS: %d",

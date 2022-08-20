@@ -8,6 +8,7 @@ import java.util.IllegalFormatException
 abstract class TextElement: Element() {
 	var override: String? = null
 
+	var shadow: Boolean = false
 	override fun render(client: MinecraftClient, matrices: MatrixStack?) {
 		val text: Text? = try {
 			if (override != null) {
@@ -18,6 +19,11 @@ abstract class TextElement: Element() {
 		} catch (e: IllegalFormatException) {
 			Text.translatable("error.fabrihud.formatting")
 		}
-		client.textRenderer.draw(matrices, text, x.toFloat(), y.toFloat(), -1)
+		if (shadow) {
+			client.inGameHud.textRenderer.drawWithShadow(matrices, text, x.toFloat(), y.toFloat(), -1)
+		}
+		else {
+			client.inGameHud.textRenderer.draw(matrices, text, x.toFloat(), y.toFloat(), -1)
+		}
 	}
 }

@@ -46,7 +46,7 @@ class ConfigScreen(private val parent: Screen?) : SpruceScreen(Text.translatable
 			optionList!!.addSingleOptionEntry(SpruceSeparatorOption(element.key + ".name", true, Text.translatable(element.key + ".tooltip")))
 			optionList!!.addOptionEntry(SpruceToggleBooleanOption("config.fabrihud.enabled",
 					{ element.enabled },
-					{ value: Boolean? -> element.enabled = value!! },
+					{ value -> element.enabled = value },
 					null
 			),
 					SpruceSimpleActionOption.of("config.fabrihud.editposition",
@@ -60,6 +60,11 @@ class ConfigScreen(private val parent: Screen?) : SpruceScreen(Text.translatable
 					null,
 					Text.translatable("config.fabrihud.override.tooltip")
 				))
+				optionList!!.addOptionEntry(SpruceToggleBooleanOption("config.fabrihud.shadow",
+					{ element.shadow },
+					{ value -> element.shadow = value},
+					Text.translatable("config.fabrihud.shadow.tooltip")
+				), null)
 			}
 			optionList!!.addOptionEntry(SpruceIntegerInputOption("config.fabrihud.editposition.x",
 					{ element.x },
