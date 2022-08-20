@@ -8,7 +8,8 @@ import net.minecraft.text.Text
 import org.lwjgl.glfw.GLFW
 import java.util.function.Consumer
 
-class PositionScreen(private val parent: Screen, private val elements: List<Element>) : SpruceScreen(Text.translatable("config.fabrihud.title")) {
+class PositionScreen(private val parent: Screen, private val elements: List<Element>) :
+	SpruceScreen(Text.translatable("config.fabrihud.title")) {
 
 	private var lastElement: Element? = null
 	override fun render(matrices: MatrixStack, mouseX: Int, mouseY: Int, delta: Float) {

@@ -31,8 +31,8 @@ object Config {
 
 	fun loadConfig() {
 		val loader = HoconConfigurationLoader.builder()
-				.path(configPath)
-				.build()
+			.path(configPath)
+			.build()
 		val root: CommentedConfigurationNode
 
 		try {
@@ -62,20 +62,20 @@ object Config {
 	fun applyDefaultConfig() {
 		hudEnabled = true
 		elements = listOf(
-				FPSElement(5, 5, true),
-				BiomeElement(5, 10, false),
-				LatencyElement(5, 10, false),
-				PositionElement(5, 10, false),
-				TimeElement(5, 10, false),
-				LightElement(5, 10, false)
+			FPSElement(5, 5, true),
+			BiomeElement(5, 10, false),
+			LatencyElement(5, 10, false),
+			PositionElement(5, 10, false),
+			TimeElement(5, 10, false),
+			LightElement(5, 10, false)
 		)
 		FabriHUD.logger.info("Applied default config settings")
 	}
 
 	fun saveConfig() {
 		val loader = HoconConfigurationLoader.builder()
-				.path(configPath)
-				.build()
+			.path(configPath)
+			.build()
 		val root: CommentedConfigurationNode
 		try {
 			root = loader.load()

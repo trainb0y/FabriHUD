@@ -2,9 +2,7 @@ package io.github.trainb0y.fabrihud.elements
 
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.util.math.MatrixStack
-import net.minecraft.text.Text
 import org.spongepowered.configurate.objectmapping.ConfigSerializable
-import java.util.IllegalFormatException
 
 /**
  * Represents a HUD element

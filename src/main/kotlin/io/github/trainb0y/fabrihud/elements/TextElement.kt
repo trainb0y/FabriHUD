@@ -5,7 +5,7 @@ import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.text.Text
 import java.util.IllegalFormatException
 
-abstract class TextElement: Element() {
+abstract class TextElement : Element() {
 	var override: String? = null
 
 	var shadow: Boolean = false
@@ -21,8 +21,7 @@ abstract class TextElement: Element() {
 		}
 		if (shadow) {
 			client.inGameHud.textRenderer.drawWithShadow(matrices, text, x.toFloat(), y.toFloat(), -1)
-		}
-		else {
+		} else {
 			client.inGameHud.textRenderer.draw(matrices, text, x.toFloat(), y.toFloat(), -1)
 		}
 	}
