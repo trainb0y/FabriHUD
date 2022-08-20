@@ -14,6 +14,7 @@ import dev.lambdaurora.spruceui.widget.SpruceButtonWidget
 import dev.lambdaurora.spruceui.widget.container.SpruceOptionListWidget
 import io.github.trainb0y.fabrihud.config.Config
 import io.github.trainb0y.fabrihud.elements.Element
+import io.github.trainb0y.fabrihud.elements.TextElement
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.text.Text
@@ -52,12 +53,14 @@ class ConfigScreen(private val parent: Screen?) : SpruceScreen(Text.translatable
 							{ client!!.setScreen(PositionScreen(this, listOf(element))) },
 							Text.translatable("config.fabrihud.editposition.tooltip")
 					))
-			optionList!!.addSingleOptionEntry(SpruceStringOption("config.fabrihud.override",
+			if (element is TextElement) {
+				optionList!!.addSingleOptionEntry(SpruceStringOption("config.fabrihud.override",
 					{ element.override },
 					{ value: String -> if (value.strip() === "") element.override = null else element.override = value },
 					null,
 					Text.translatable("config.fabrihud.override.tooltip")
-			))
+				))
+			}
 			optionList!!.addOptionEntry(SpruceIntegerInputOption("config.fabrihud.editposition.x",
 					{ element.x },
 					{ value: Int? -> element.x = value!! },

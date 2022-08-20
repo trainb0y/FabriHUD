@@ -11,8 +11,6 @@ import java.util.IllegalFormatException
  */
 @ConfigSerializable
 abstract class Element() {
-	var override: String? = null
-
 	/**
 	 * Whether to display this Element
 	 */
@@ -38,18 +36,7 @@ abstract class Element() {
 	/**
 	 * Renders this Element
 	 */
-	fun render(client: MinecraftClient, matrices: MatrixStack?) {
-		val text: Text? = try {
-			if (override != null) {
-				Text.literal(override!!.format(*getArgs(client).toTypedArray()))
-			} else {
-				Text.translatable("$key.display", *getArgs(client).toTypedArray())
-			}
-		} catch (e: IllegalFormatException) {
-			Text.translatable("error.fabrihud.formatting")
-		}
-		client.textRenderer.draw(matrices, text, x.toFloat(), y.toFloat(), -1)
-	}
+	abstract fun render(client: MinecraftClient, matrices: MatrixStack?)
 
 	abstract fun getArgs(client: MinecraftClient): List<Any?>
 

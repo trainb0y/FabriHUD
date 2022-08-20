@@ -3,7 +3,7 @@ package io.github.trainb0y.fabrihud.elements
 import net.minecraft.client.MinecraftClient
 
 // HUD element displaying the client-server latency (ping)
-class LatencyElement : Element() {
+class LatencyElement : TextElement() {
 	override fun getArgs(client: MinecraftClient): List<Any?> {
 		var ping = -1
 		if (client.networkHandler != null) {
