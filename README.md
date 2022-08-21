@@ -7,6 +7,7 @@
 - Minecraft `>1.19.2`
 - [Fabric Loader](https://fabricmc.net/) `>0.14.8` or the equivalent [Quilt](https://quiltmc.org/) version
 - [ModMenu](https://github.com/TerraformersMC/ModMenu) `>4.0.0`  
+- [Fabric Language Kotlin](https://github.com/FabricMC/fabric-language-kotlin) `>1.8.2`
 - Though not strictly required, ModMenu is the only way to access the configuration UI.  
 
 ### Elements 
@@ -16,6 +17,7 @@ FabriHUD provides a variety of HUD "elements" These include:
 - Server Latency (Ping)
 - FPS 
 - Current Biome  
+- Ambient Light
   
 It's pretty easy to add more, so if you want something custom, chances are I'd be willing to add it (within reason though).  
   

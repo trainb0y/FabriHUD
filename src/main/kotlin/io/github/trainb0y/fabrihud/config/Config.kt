@@ -17,7 +17,7 @@ import java.nio.file.Path
 
 @ConfigSerializable
 object Config {
-	private const val version = "1.0"
+	private const val version = "2" // config version, doesn't necc. match mod version
 
 	@JvmField
 	var hudEnabled = true
