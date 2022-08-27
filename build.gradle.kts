@@ -43,7 +43,6 @@ dependencies {
 }
 
 tasks {
-
     processResources {
         inputs.property("version", project.version)
         filesMatching("fabric.mod.json") {
@@ -55,20 +54,8 @@ tasks {
         from("LICENSE")
     }
 
-    publishing {
-        publications {
-            create<MavenPublication>("mavenJava") {
-                artifact(remapJar) {
-                    builtBy(remapJar)
-                }
-            }
-        }
-
-        // select the repositories you want to publish to
-        repositories {
-            // uncomment to publish to the local maven
-            // mavenLocal()
-        }
+    compileKotlin {
+        kotlinOptions.jvmTarget = "17"
     }
 }
 
