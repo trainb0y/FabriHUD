@@ -25,7 +25,6 @@ import java.util.function.Consumer
 class ConfigScreen(private val parent: Screen?) : SpruceScreen(Text.translatable("config.fabrihud.title")) {
 
 	private var tabbed: SpruceTabbedWidget? = null
-	override fun shouldCloseOnEsc() = false  // force buttons
 
 	override fun init() {
 		super.init()
@@ -151,5 +150,10 @@ class ConfigScreen(private val parent: Screen?) : SpruceScreen(Text.translatable
 			}
 		})
 		addDrawableChild(tabbed)
+	}
+
+	override fun close() {
+		super.close()
+		Config.saveConfig()
 	}
 }
