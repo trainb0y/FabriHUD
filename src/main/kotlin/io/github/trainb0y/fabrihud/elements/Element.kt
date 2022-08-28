@@ -25,12 +25,6 @@ abstract class Element() {
 	 */
 	var y = 0
 
-	constructor(x: Int, y: Int, enabled: Boolean) : this() {
-		this.x = x
-		this.y = y
-		this.enabled = enabled
-	}
-
 	/**
 	 * Renders this Element
 	 */
