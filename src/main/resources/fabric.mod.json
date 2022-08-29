@@ -18,7 +18,7 @@
     "sources": "https://github.com/trainb0y/FabriHUD",
     "discord": "https://discord.gg/PPCvtMTXvP"
   },
-  "license": "GPL-3.0",
+  "license": "MIT",
   "icon": "assets/fabrihud/icon.png",
   "environment": "client",
   "entrypoints": {
