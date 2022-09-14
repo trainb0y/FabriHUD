@@ -35,7 +35,7 @@ class ConfigScreen(private val parent: Screen?) : SpruceScreen(Text.translatable
 
 		tabbed!!.addTabEntry(Text.translatable("config.fabrihud.primary"), null) { w, h ->
 			val globalOptions = SpruceOptionListWidget(Position.of(4, 4), w, h)
-			globalOptions.background = DirtTexturedBackground.DARKENED
+
 			globalOptions.addOptionEntry(
 				SpruceBooleanOption(
 					"config.fabrihud.option.enabled",
