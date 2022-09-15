@@ -33,10 +33,8 @@ object Config {
 		val loader = HoconConfigurationLoader.builder()
 			.path(configPath)
 			.build()
-		val root: CommentedConfigurationNode
-
 		try {
-			root = loader.load()
+			val root = loader.load()
 			val configVersion = root.node("version").string
 			if (version != configVersion) {
 				FabriHUD.logger.warn("Found config version: $configVersion, current version: $version")
@@ -85,9 +83,8 @@ object Config {
 		val loader = HoconConfigurationLoader.builder()
 			.path(configPath)
 			.build()
-		val root: CommentedConfigurationNode
 		try {
-			root = loader.load()
+			val root = loader.load()
 			root.node("version").set(version)
 			root.node("enabled").set(hudEnabled)
 			root.node("elements").setList(Element::class.java, elements)
