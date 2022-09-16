@@ -36,7 +36,14 @@ If you have a feature request or run into an issue, please report it on the [Git
 Thanks to [Configurate](https://github.com/SpongePowered/Configurate) and [SpruceUI](https://github.com/LambdAurora/SpruceUI) for the exellent libraries.
 #### Disclaimer: This is my first real attempt at making a mod, so I make no promises to code quality and best practices. However, if issues arise I'll do my best to fix them.
 
-### Screenshots
+### Links
+[![~fabric~](https://raw.githubusercontent.com/intergrav/devins-badges/main/badges/fabric_64h.png)](https://modrinth.com/mod/fabrihud/)
+[![~quilt~](https://raw.githubusercontent.com/intergrav/devins-badges/main/badges/quilt_64h.png)](https://modrinth.com/mod/fabrihud/)
+[![~modrinth~](https://raw.githubusercontent.com/intergrav/devins-badges/main/badges/modrinth_64h.png)](https://modrinth.com/mod/fabrihud/)
+[![~curseforge~](https://raw.githubusercontent.com/intergrav/devins-badges/main/badges/curseforge_64h.png)](https://www.curseforge.com/minecraft/mc-mods/fabrihud)
+[![~discord~](https://raw.githubusercontent.com/intergrav/devins-badges/main/badges/discord_64h.png)](https://discord.gg/PPCvtMTXvP)
+[![~github~](https://raw.githubusercontent.com/intergrav/devins-badges/main/badges/github-repository_64h.png)](https://github.com/trainb0y/fabrihud)
 
+### Screenshots
 ![Default HUD Elements](https://cdn.modrinth.com/data/JW9YUcl3/images/d5b475951f018133b9ef2e36f53086fd0386bee6.png)
 ![A little more crazy](https://cdn.modrinth.com/data/JW9YUcl3/images/48b124c03634e79ac630bf9143e6d0f8dc09d297.png)
