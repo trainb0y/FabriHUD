@@ -8,7 +8,8 @@
 - [Fabric Loader](https://fabricmc.net/) `>0.14.8` or the equivalent [Quilt](https://quiltmc.org/) version
 - [ModMenu](https://github.com/TerraformersMC/ModMenu) `>4.0.0`  
 - [Fabric Language Kotlin](https://github.com/FabricMC/fabric-language-kotlin) `>1.8.2`
-- Though not strictly required, ModMenu is the only way to access the configuration UI.  
+
+Though not strictly required, ModMenu is the only way to access the configuration UI.  
 
 ### Elements 
 FabriHUD provides a variety of HUD "elements" These include:
