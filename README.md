@@ -28,6 +28,11 @@ Each element can be toggled on and off and positioned independently wherever you
 #### Overrides 
 "Overrides" allow you to further customize the output, including colors, base text, and more.   
 More information about element overrides can be found [here](https://github.com/trainb0y/FabriHUD/blob/main/Overrides.md).  
+
+### Future Plans
+- MSPT Element? (avg/min/max)
+- TPS Element?
+- Look into overrides with colors  making the text entries act up
   
 ### Contributions 
 All contributions are welcome, including translations. The source code is licensed under MIT.  
