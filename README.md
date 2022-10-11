@@ -32,7 +32,9 @@ More information about element overrides can be found [here](https://github.com/
 ### Future Plans
 - MSPT Element? (avg/min/max)
 - TPS Element?
-- Look into overrides with colors  making the text entries act up
+- Look into overrides with colors making the text entries act up
+- Make element positions scale with GUI scale
+- Toggleable colored backgrounds for elemetns, see [this issue](https://github.com/trainb0y/FabriHUD/issues/2)
   
 ### Contributions 
 All contributions are welcome, including translations. The source code is licensed under MIT.  
