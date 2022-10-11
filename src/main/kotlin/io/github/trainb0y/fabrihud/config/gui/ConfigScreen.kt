@@ -130,7 +130,12 @@ class ConfigScreen(private val parent: Screen?) : SpruceScreen(Text.translatable
 							{ element.shadow },
 							{ value -> element.shadow = value },
 							Text.translatable("config.fabrihud.shadow.tooltip")
-						), null
+						), SpruceToggleBooleanOption(
+							"config.fabrihud.background",
+							{ element.background },
+							{ value -> element.background = value},
+							Text.translatable("config.fabrihud.background.tooltip")
+						)
 					)
 				}
 				optionList.addOptionEntry(

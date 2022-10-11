@@ -33,6 +33,8 @@
   "config.fabrihud.shadow": "Text Shadow",
   "config.fabrihud.shadow.tooltip": "Whether to display this element with a text shadow",
 
+  "config.fabrihud.background": "Text Background",
+  "config.fabrihud.background.tooltip": "Whether to display this element with a colored background",
 
   "element.fabrihud.fps.name": "FPS Display",
   "element.fabrihud.fps.tooltip": "Displays frames per second rendered",
