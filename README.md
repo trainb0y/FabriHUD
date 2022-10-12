@@ -7,7 +7,7 @@
 - Minecraft `>1.19.2`
 - [Fabric Loader](https://fabricmc.net/) `>0.14.8` or the equivalent [Quilt](https://quiltmc.org/) version
 - [ModMenu](https://github.com/TerraformersMC/ModMenu) `>4.0.0`  
-- [Fabric Language Kotlin](https://github.com/FabricMC/fabric-language-kotlin) `>1.8.2`
+- [Fabric Language Kotlin](https://github.com/FabricMC/fabric-language-kotlin) `>1.8.3`
 
 Though not strictly required, ModMenu is the only way to access the configuration UI.  
 
@@ -34,8 +34,8 @@ More information about element overrides can be found [here](https://github.com/
 - TPS Element?
 - Look into overrides with colors making the text entries act up
 - Make element positions scale with GUI scale
-- Toggleable colored backgrounds for elemetns, see [this issue](https://github.com/trainb0y/FabriHUD/issues/2)
-  
+- Customize vanilla HUD?
+
 ### Contributions 
 All contributions are welcome, including translations. The source code is licensed under MIT.  
 If you have a feature request or run into an issue, please report it on the [GitHub](https://giithub.com/trainb0y/FabriHUD). For help join [the Discord](https://discord.gg/PPCvtMTXvP).  
