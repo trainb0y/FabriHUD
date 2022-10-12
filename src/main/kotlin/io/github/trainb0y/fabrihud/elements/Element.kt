@@ -8,7 +8,7 @@ import org.spongepowered.configurate.objectmapping.ConfigSerializable
  * Represents a HUD element
  */
 @ConfigSerializable
-abstract class Element() {
+abstract class Element {
 	/** Whether to display this Element */
 	@JvmField
 	var enabled = false

@@ -1,7 +1,6 @@
 package io.github.trainb0y.fabrihud.config.gui
 
 import dev.lambdaurora.spruceui.Position
-import dev.lambdaurora.spruceui.background.DirtTexturedBackground
 import dev.lambdaurora.spruceui.option.SpruceBooleanOption
 import dev.lambdaurora.spruceui.option.SpruceIntegerInputOption
 import dev.lambdaurora.spruceui.option.SpruceSeparatorOption
@@ -133,7 +132,7 @@ class ConfigScreen(private val parent: Screen?) : SpruceScreen(Text.translatable
 						), SpruceToggleBooleanOption(
 							"config.fabrihud.background",
 							{ element.background },
-							{ value -> element.background = value},
+							{ value -> element.background = value },
 							Text.translatable("config.fabrihud.background.tooltip")
 						)
 					)

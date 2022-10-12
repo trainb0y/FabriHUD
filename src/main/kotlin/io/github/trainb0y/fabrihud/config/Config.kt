@@ -9,7 +9,6 @@ import io.github.trainb0y.fabrihud.elements.LightElement
 import io.github.trainb0y.fabrihud.elements.PositionElement
 import io.github.trainb0y.fabrihud.elements.TimeElement
 import net.fabricmc.loader.api.FabricLoader
-import org.spongepowered.configurate.CommentedConfigurationNode
 import org.spongepowered.configurate.ConfigurateException
 import org.spongepowered.configurate.hocon.HoconConfigurationLoader
 import org.spongepowered.configurate.objectmapping.ConfigSerializable
@@ -67,11 +66,13 @@ object Config {
 			TimeElement(),
 			LightElement()
 		)
-		elements.forEach { it.apply {
-			this.x = 5
-			this.y = 10
-			this.enabled = false
-		}}
+		elements.forEach {
+			it.apply {
+				this.x = 5
+				this.y = 10
+				this.enabled = false
+			}
+		}
 		elements.first().apply {
 			this.y = 5
 			this.enabled = true
