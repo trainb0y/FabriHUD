@@ -9,31 +9,27 @@ import org.spongepowered.configurate.objectmapping.ConfigSerializable
  */
 @ConfigSerializable
 abstract class Element() {
-	/**
-	 * Whether to display this Element
-	 */
+	/** Whether to display this Element */
 	@JvmField
 	var enabled = false
 
-	/**
-	 * X component of this Element's position
-	 */
+	/** X component of this Element's position */
 	var x = 0
 
-	/**
-	 * Y component of this Element's position
-	 */
+	/** Y component of this Element's position */
 	var y = 0
 
-	/**
-	 * Renders this Element
-	 */
-	abstract fun render(client: MinecraftClient, matrices: MatrixStack?)
+	/** The width of this element when rendered */
+	abstract val width: Int
+
+	/** The height of this element when rendered */
+	abstract val height: Int
+
+	/** Renders this Element */
+	abstract fun render(matrices: MatrixStack?)
 
 	abstract fun getArgs(client: MinecraftClient): List<Any?>
 
-	/**
-	 * @return the translation key for this Element's related text
-	 */
+	/** The translation key for this Element's related text */
 	abstract val key: String
 }

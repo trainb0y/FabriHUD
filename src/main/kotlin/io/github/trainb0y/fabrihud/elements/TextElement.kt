@@ -13,25 +13,30 @@ abstract class TextElement : Element() {
 	var background: Boolean = true
 	var backgroundColor: Int = -0x6FAFAFB0
 
-	override fun render(client: MinecraftClient, matrices: MatrixStack?) {
-		val text: Text? = try {
-			if (override != null) {
-				Text.literal(override!!.format(*getArgs(client).toTypedArray()))
-			} else {
-				Text.translatable("$key.display", *getArgs(client).toTypedArray())
-			}
-		} catch (e: IllegalFormatException) {
-			Text.translatable("error.fabrihud.formatting")
-		}
-		if (background) {
-			val w: Int = client.inGameHud.textRenderer.getWidth(text)
-			val h = client.inGameHud.textRenderer.fontHeight
-			DrawableHelper.fill(matrices, x - 2, y - 2, x + w + 1, y + h, backgroundColor)
-		}
-		if (shadow) {
-			client.inGameHud.textRenderer.drawWithShadow(matrices, text, x.toFloat(), y.toFloat(), -1)
-		} else {
-			client.inGameHud.textRenderer.draw(matrices, text, x.toFloat(), y.toFloat(), -1)
-		}
+	override val height: Int
+		get() = MinecraftClient.getInstance().inGameHud.textRenderer.fontHeight + 2
+
+	override val width: Int
+		get() = MinecraftClient.getInstance().inGameHud.textRenderer.getWidth(getText())
+
+
+	override fun render(matrices: MatrixStack?) {
+		val client = MinecraftClient.getInstance()
+		val text = getText()
+
+		if (background) DrawableHelper.fill(matrices, x, y, x + width + 3, y + height, backgroundColor)
+		if (shadow) client.inGameHud.textRenderer.drawWithShadow(matrices, text, x + 2f, y + 2f, -1)
+		else client.inGameHud.textRenderer.draw(matrices, text, x + 2f, y + 2f, -1)
+
+	}
+
+	private fun getText(): Text = try {
+		val client = MinecraftClient.getInstance()
+
+		if (override != null) Text.literal(override!!.format(*getArgs(client).toTypedArray()))
+		else Text.translatable("$key.display", *getArgs(client).toTypedArray())
+
+	} catch (e: IllegalFormatException) {
+		Text.translatable("error.fabrihud.formatting")
 	}
 }

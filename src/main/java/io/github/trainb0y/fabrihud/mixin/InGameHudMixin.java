@@ -23,7 +23,7 @@ public class InGameHudMixin extends DrawableHelper {
 		if (!Config.hudEnabled) return;
 		if (client.options.debugEnabled) return; // don't render when f3 open
 		Config.getElements().forEach((element) -> {
-					if (element.enabled) element.render(client, matrices);
+					if (element.enabled) element.render(matrices);
 				}
 		);
 	}
