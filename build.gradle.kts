@@ -2,7 +2,7 @@ plugins {
     id("fabric-loom")
     `maven-publish`
     java
-    kotlin("jvm") version "1.7.10"
+    kotlin("jvm") version "1.7.21"
 }
 
 group = property("maven_group")!!
@@ -37,6 +37,7 @@ dependencies {
     include("io.leangen.geantyref:geantyref:1.3.12") // reflection
 
     modImplementation("net.fabricmc:fabric-loader:${property("loader_version")}")
+    modImplementation("net.fabricmc.fabric-api:fabric-api:${property("fabric_api_version")}")
     modImplementation("com.terraformersmc:modmenu:${property("mod_menu_version")}")
     modImplementation("dev.lambdaurora:spruceui:${property("spruce_ui_version")}")
     modImplementation("net.fabricmc:fabric-language-kotlin:${property("fabric_kotlin_version")}")
