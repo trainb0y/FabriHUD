@@ -1,163 +1,212 @@
 package io.github.trainb0y.fabrihud.config.gui
 
-import dev.lambdaurora.spruceui.Position
-import dev.lambdaurora.spruceui.option.SpruceBooleanOption
-import dev.lambdaurora.spruceui.option.SpruceIntegerInputOption
-import dev.lambdaurora.spruceui.option.SpruceSeparatorOption
-import dev.lambdaurora.spruceui.option.SpruceSimpleActionOption
-import dev.lambdaurora.spruceui.option.SpruceStringOption
-import dev.lambdaurora.spruceui.option.SpruceToggleBooleanOption
-import dev.lambdaurora.spruceui.screen.SpruceScreen
-import dev.lambdaurora.spruceui.widget.container.SpruceOptionListWidget
-import dev.lambdaurora.spruceui.widget.container.tabbed.SpruceTabbedWidget
+import dev.isxander.yacl.api.Binding
+import dev.isxander.yacl.api.ButtonOption
+import dev.isxander.yacl.api.ConfigCategory
+import dev.isxander.yacl.api.Option
+import dev.isxander.yacl.api.OptionGroup
 import io.github.trainb0y.fabrihud.config.Config
 import io.github.trainb0y.fabrihud.elements.Element
 import io.github.trainb0y.fabrihud.elements.TextElement
+import dev.isxander.yacl.api.YetAnotherConfigLib
+import dev.isxander.yacl.gui.YACLScreen
+import dev.isxander.yacl.gui.controllers.ActionController
+import dev.isxander.yacl.gui.controllers.TickBoxController
+import dev.isxander.yacl.gui.controllers.string.StringController
+import dev.isxander.yacl.gui.controllers.slider.IntegerSliderController
+import net.minecraft.client.MinecraftClient
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.text.Text
-import java.util.function.Consumer
 
 
-/**
- * Primary configuration screen
- */
-class ConfigScreen(private val parent: Screen?) : SpruceScreen(Text.translatable("config.fabrihud.title")) {
+fun openConfigScreen(parent: Screen?): Screen =
+	// Welcome to Builder Hell:tm:
+	// We hope you brought popcorn!
 
-	private var tabbed: SpruceTabbedWidget? = null
+	// tbh the SpruceUI config screen was a lot cleaner,
+	// but it was kind of ugly, and FabriZoom needed some YACL features,
+	// and I'd rather have consistency between mods.
 
-	override fun init() {
-		super.init()
+	YetAnotherConfigLib.createBuilder()
+		.title(Text.translatable("config.fabrihud.global"))
+		.category(ConfigCategory.createBuilder()
+			.name(Text.translatable("config.fabrihud.primary"))
+			.option(Option.createBuilder(Boolean::class.java)
+				.name(Text.translatable("config.fabrihud.option.enabled"))
+				.tooltip(Text.translatable("config.fabrihud.option.enabled.tooltip"))
+				.binding(
+					Binding.generic(
+						Config.hudEnabled,
+						{ Config.hudEnabled },
+						{value -> Config.hudEnabled = value}
+					)
+				)
+				.controller { option ->
+					TickBoxController(option)
+				}
+				.build()
+			)
+			.option(ButtonOption.createBuilder()
+				.name(Text.translatable("config.fabrihud.editpositions"))
+				.tooltip(Text.translatable("config.fabrihud.editpositions.tooltip"))
+				.action { screen: YACLScreen?, _: ButtonOption? ->
+					MinecraftClient.getInstance().setScreen(
+						PositionScreen(
+							screen as Screen,
+							Config.elements.stream().filter { element: Element -> element.enabled }.toList()
+						)
+					)
+				}.controller { option: ButtonOption? ->
+					ActionController(option)
+				}
+				.build()
+			)
+			.option(ButtonOption.createBuilder()
+				.name(Text.translatable("config.fabrihud.reset"))
+				.tooltip(Text.translatable("config.fabrihud.reset.tooltip"))
+				.action { screen: YACLScreen?, _: ButtonOption? ->
+					Config.applyDefaultConfig()
+					Config.saveConfig()
+					screen?.close()
 
-		tabbed = SpruceTabbedWidget(Position.of(this, 0, 4), this.width, this.height - 35 - 4, this.title)
-
-		tabbed!!.addSeparatorEntry(Text.translatable("config.fabrihud.global"))
-
-		tabbed!!.addTabEntry(Text.translatable("config.fabrihud.primary"), null) { w, h ->
-			val globalOptions = SpruceOptionListWidget(Position.of(4, 4), w, h)
-
-			globalOptions.addOptionEntry(
-				SpruceBooleanOption(
-					"config.fabrihud.option.enabled",
-					{ Config.hudEnabled },
-					{ value: Boolean? -> Config.hudEnabled = value!! },
-					Text.translatable("config.fabrihud.option.enabled.tooltip")
-				), SpruceSimpleActionOption.of(
-					"config.fabrihud.editpositions",
-					{
-						client!!.setScreen(
-							PositionScreen(
-								this,
-								Config.elements.stream().filter { element: Element -> element.enabled }.toList()
+				}.controller { option: ButtonOption? ->
+					ActionController(option)
+				}
+				.build()
+			)
+			.build()
+		)
+		.category(ConfigCategory.createBuilder()
+			.name(Text.translatable("config.fabrihud.elements"))
+			.also { category ->
+				Config.elements.forEach { element ->
+					category.group(OptionGroup.createBuilder()
+						.name(Text.translatable(element.key + ".name"))
+						.tooltip(Text.translatable(element.key + ".tooltip"))
+						.option(Option.createBuilder(Boolean::class.java)
+							.name(Text.translatable("config.fabrihud.enabled"))
+							.tooltip(Text.translatable("config.fabrihud.enabled.tooltip"))
+							.binding(
+								Binding.generic(
+									element.enabled,
+									{ element.enabled },
+									{value -> element.enabled = value}
+								)
 							)
+							.controller { option ->
+								TickBoxController(option)
+							}
+							.build()
 						)
-					},
-					Text.translatable("config.fabrihud.editposition.tooltip")
-				)
-			)
-			globalOptions.addSingleOptionEntry(SpruceSeparatorOption("", false, null))
-			globalOptions.addOptionEntry(
-				SpruceSimpleActionOption.of(
-					"config.fabrihud.reset",
-					{
-						Config.applyDefaultConfig()
-						Config.saveConfig()
-						this.client!!.setScreen(ConfigScreen(parent)) // values don't automatically update, so...
-					},
-					Text.translatable("config.fabrihud.reset.tooltip")
-				), SpruceSimpleActionOption.of(
-					"config.fabrihud.cancel",
-					{
-						Config.loadConfig()
-						this.client!!.setScreen(parent)
-					},
-					Text.translatable("config.fabrihud.cancel.tooltip")
-				)
-			)
-			globalOptions.addSmallSingleOptionEntry(
-				SpruceSimpleActionOption.of(
-					"config.fabrihud.apply",
-					{
-						Config.saveConfig()
-						this.client!!.setScreen(parent)
-					},
-					Text.translatable("config.fabrihud.apply.tooltip")
-				)
-			)
-			globalOptions
-		}
-
-		tabbed!!.addSeparatorEntry(Text.translatable("config.fabrihud.elements"))
-
-		Config.elements.forEach(Consumer { element: Element ->
-			tabbed!!.addTabEntry(Text.translatable(element.key + ".name"), null) { w, h ->
-				val optionList = SpruceOptionListWidget(Position.of(4, 4), w, h)
-				optionList.addSingleOptionEntry(
-					SpruceSeparatorOption(
-						element.key + ".name",
-						true,
-						Text.translatable(element.key + ".tooltip")
-					)
-				)
-				optionList.addOptionEntry(
-					SpruceToggleBooleanOption(
-						"config.fabrihud.enabled",
-						{ element.enabled },
-						{ value -> element.enabled = value },
-						null
-					),
-					SpruceSimpleActionOption.of(
-						"config.fabrihud.editposition",
-						{ client!!.setScreen(PositionScreen(this, listOf(element))) },
-						Text.translatable("config.fabrihud.editposition.tooltip")
-					)
-				)
-				if (element is TextElement) {
-					optionList.addSingleOptionEntry(
-						SpruceStringOption(
-							"config.fabrihud.override",
-							{ element.override },
-							{ value: String ->
-								if (value.strip() === "") element.override = null else element.override = value
-							},
-							null,
-							Text.translatable("config.fabrihud.override.tooltip")
+						.option(ButtonOption.createBuilder()
+							.name(Text.translatable("config.fabrihud.editposition"))
+							.tooltip(Text.translatable("config.fabrihud.editposition.tooltip"))
+							.action { screen: YACLScreen?, _: ButtonOption? ->
+								MinecraftClient.getInstance().setScreen(
+									PositionScreen(
+										screen as Screen,
+										listOf(element)
+									)
+								)
+							}.controller { option: ButtonOption? ->
+								ActionController(option)
+							}
+							.build()
 						)
-					)
-					optionList.addOptionEntry(
-						SpruceToggleBooleanOption(
-							"config.fabrihud.shadow",
-							{ element.shadow },
-							{ value -> element.shadow = value },
-							Text.translatable("config.fabrihud.shadow.tooltip")
-						), SpruceToggleBooleanOption(
-							"config.fabrihud.background",
-							{ element.background },
-							{ value -> element.background = value },
-							Text.translatable("config.fabrihud.background.tooltip")
+						.also {group ->
+							if (element !is TextElement) return@also
+							group.option(Option.createBuilder(String::class.java)
+								.name(Text.translatable("config.fabrihud.override"))
+								.tooltip(Text.translatable("config.fabrihud.override.tooltip"))
+								.binding(
+									Binding.generic(
+										element.override ?: "",
+										{ element.override ?: ""},
+										{value -> element.override = value}
+									)
+								)
+								.controller { option ->
+									StringController(option)
+								}
+								.build()
+							)
+							group.option(Option.createBuilder(Boolean::class.java)
+								.name(Text.translatable("config.fabrihud.shadow"))
+								.tooltip(Text.translatable("config.fabrihud.shadow.tooltip"))
+								.binding(
+									Binding.generic(
+										element.shadow,
+										{ element.shadow },
+										{value -> element.shadow = value}
+									)
+								)
+								.controller { option ->
+									TickBoxController(option)
+								}
+								.build()
+							)
+							group.option(Option.createBuilder(Boolean::class.java)
+								.name(Text.translatable("config.fabrihud.background"))
+								.tooltip(Text.translatable("config.fabrihud.background.tooltip"))
+								.binding(
+									Binding.generic(
+										element.background,
+										{ element.background },
+										{value -> element.background = value}
+									)
+								)
+								.controller { option ->
+									TickBoxController(option)
+								}
+								.build()
+							)
+						}
+						.option(Option.createBuilder(Int::class.java)
+							.name(Text.translatable("config.fabrihud.editposition.x"))
+							.tooltip(Text.translatable("config.fabrihud.editposition.x.tooltip"))
+							.binding(
+								Binding.generic(
+									element.x,
+									{ element.x },
+									{value -> element.x = value}
+								)
+							)
+							.controller { option ->
+								IntegerSliderController(
+									option,
+									0,
+									MinecraftClient.getInstance().window.width,
+									1
+								)
+							}
+							.build()
 						)
+						.option(Option.createBuilder(Int::class.java)
+							.name(Text.translatable("config.fabrihud.editposition.y"))
+							.tooltip(Text.translatable("config.fabrihud.editposition.y.tooltip"))
+							.binding(
+								Binding.generic(
+									element.y,
+									{ element.y },
+									{value -> element.y = value}
+								)
+							)
+							.controller { option ->
+								IntegerSliderController(
+									option,
+									0,
+									MinecraftClient.getInstance().window.height,
+									1
+								)
+							}
+							.build()
+						)
+						.build()
 					)
 				}
-				optionList.addOptionEntry(
-					SpruceIntegerInputOption(
-						"config.fabrihud.editposition.x",
-						{ element.x },
-						{ value: Int? -> element.x = value!! },
-						Text.translatable("config.fabrihud.editposition.x.tooltip")
-					), SpruceIntegerInputOption(
-						"config.fabrihud.editposition.y",
-						{ element.y },
-						{ value: Int? -> element.y = value!! },
-						Text.translatable("config.fabrihud.editposition.y.tooltip")
-					)
-				)
-				optionList
 			}
-		})
-		addDrawableChild(tabbed)
-	}
-
-	override fun close() {
-		super.close()
-		Config.saveConfig()
-	}
-}
+			.build()
+		)
+		.save(Config::saveConfig)
+		.build()
+		.generateScreen(parent)

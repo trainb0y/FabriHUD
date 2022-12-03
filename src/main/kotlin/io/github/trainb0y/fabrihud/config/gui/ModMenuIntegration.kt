@@ -6,6 +6,6 @@ import net.minecraft.client.gui.screen.Screen
 
 class ModMenuIntegration : ModMenuApi {
 	override fun getModConfigScreenFactory(): ConfigScreenFactory<*> {
-		return ConfigScreenFactory<Screen> { parent: Screen? -> ConfigScreen(parent) }
+		return ConfigScreenFactory<Screen> { parent: Screen? -> openConfigScreen(parent) }
 	}
 }

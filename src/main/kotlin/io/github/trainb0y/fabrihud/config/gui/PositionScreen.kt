@@ -1,6 +1,5 @@
 package io.github.trainb0y.fabrihud.config.gui
 
-import dev.lambdaurora.spruceui.screen.SpruceScreen
 import io.github.trainb0y.fabrihud.elements.Element
 import io.github.trainb0y.fabrihud.elements.TextElement
 import net.minecraft.client.gui.screen.Screen
@@ -11,7 +10,7 @@ import java.util.function.Consumer
 import kotlin.math.roundToInt
 
 class PositionScreen(private val parent: Screen, private val elements: List<Element>) :
-	SpruceScreen(Text.translatable("config.fabrihud.title")) {
+	Screen(Text.translatable("config.fabrihud.title")) {
 
 	private var lastElement: Element? = null
 	private var relativeX = 0.0

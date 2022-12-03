@@ -15,8 +15,10 @@ repositories {
     // See https://docs.gradle.org/current/userguide/declaring_repositories.html
     // for more information about repositories.
     maven(uri("https://maven.terraformersmc.com/"))
+    maven(uri("https://maven.isxander.dev/releases"))
     maven(uri("https://maven.gegy.dev"))
     mavenCentral()
+    mavenLocal()
 }
 
 dependencies {
@@ -39,7 +41,8 @@ dependencies {
     modImplementation("net.fabricmc:fabric-loader:${property("loader_version")}")
     modImplementation("net.fabricmc.fabric-api:fabric-api:${property("fabric_api_version")}")
     modImplementation("com.terraformersmc:modmenu:${property("mod_menu_version")}")
-    modImplementation("dev.lambdaurora:spruceui:${property("spruce_ui_version")}")
+    modImplementation("dev.isxander:yet-another-config-lib:${property("yacl_version")}")
+    include("dev.isxander:yet-another-config-lib:${property("yacl_version")}") // this might? cause issues
     modImplementation("net.fabricmc:fabric-language-kotlin:${property("fabric_kotlin_version")}")
 }
 
